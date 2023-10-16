@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ItemModal from './ItemModal/ItemModal';
+import ItemCard from '../ItemCard/ItemCard';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-          <ItemModal/>
+          <ItemCard/>
         </a>
       </header>
     </div>
