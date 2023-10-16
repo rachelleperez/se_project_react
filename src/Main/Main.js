@@ -8,9 +8,10 @@ function Main({weatherTemp}) {
       <WeatherCard day={false} type='snow' weatherTemp = {weatherTemp} />
       <section className='card_section' id='card-section'>
         Today is {weatherTemp} °F / You may want to wear:
-        <div className='card_items'>
+        <div className='card_items' id='card-items'>
           {defaultClothingItems.map((item) => (
-            <ItemCard x={item} />
+            // console.log(`item_card_${item._id}`),
+            <ItemCard key={`item_card_${item._id}`} x={item} />
           ))}
         </div>
       </section>

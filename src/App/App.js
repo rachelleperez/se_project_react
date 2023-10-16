@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import './App.css';
 import Header from '../Header/Header'
 import Main from '../Main/Main';
@@ -8,7 +7,7 @@ function App() {
   const weatherTemp = '102';
   return (
     <div>
-    <Header/>
+    <Header />
     <Main weatherTemp = {weatherTemp}/>
     <Footer/>
     </div>
