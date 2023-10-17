@@ -7,7 +7,7 @@ import {useState} from "react";
 import ItemModal from '../ItemModal/ItemModal';
 
 function App() {
-  const weatherTemp = '102';
+  const weatherTemp = '50';
 
   const [activeModal, setActiveModal] = useState("") // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}) // empty object as filled one is object from defaultClothingItems
