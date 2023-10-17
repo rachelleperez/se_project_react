@@ -1,6 +1,7 @@
 // https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
 
 // CurrentWeather API: https://openweathermap.org/current 
+// Weather Conditions: https://openweathermap.org/weather-conditions
 
 // NYC
 const latitude = 40.7128;
@@ -63,7 +64,7 @@ export const parseWeatherData = (data) => {
 
     // Extract current temp
     const main= data.main
-    const temperature = main && Math.ceil(main.temp);
+    const temperature = main && Math.ceil(main.temp); // ceil to round to whole number
     // console.log(temperature);
 
     // summary of parsed data
@@ -77,5 +78,5 @@ export const parseWeatherData = (data) => {
         temperature: temperature
     }
 
-    return parsedData // ceil to round to whole number
+    return parsedData 
 }
