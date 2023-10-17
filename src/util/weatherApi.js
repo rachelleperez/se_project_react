@@ -31,7 +31,7 @@ export const parseWeatherData = (data) => {
     // console.log(cityName); // New York
 
     // Extract Weather Type
-    // console.log(data.weather[0].main); // Thunderstorm, Drizzle, Rain, Snow, Fog, Clear, Clouds
+    // console.log(data.weather[0].main.toLowerCase() ); // Thunderstorm, Drizzle, Rain, Snow, Fog, Clear, Clouds
     let weatherType = null;
     if (data.weather[0].main.toLowerCase() === 'thunderstorm') weatherType = 'storm'
         else if (data.weather[0].main.toLowerCase() === 'snow') weatherType = 'snow'

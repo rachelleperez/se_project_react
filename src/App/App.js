@@ -16,6 +16,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({}) // empty object as filled one is object from defaultClothingItems
   const [temp, setTemp] = useState(0);
   const [city, setCity] = useState("");
+  const [isDaytime, setIsDaytime] = useState(true);
+  const [weatherType, setWeatherType] = useState('sunny');
 
   const handleCreateModal = () => {
     setActiveModal('create');
@@ -32,18 +34,17 @@ function App() {
   
   useEffect(() => { // app already rendered, then it calls API
     getForecastWeather().then((data) => {
-      // console.log(data)
-      const tempIn = parseWeatherData(data).temperature;
-      const cityIn = parseWeatherData(data).cityName;
-      setTemp(tempIn);
-      setCity(cityIn);
+      setTemp(parseWeatherData(data).temperature);
+      setCity(parseWeatherData(data).cityName);
+      setIsDaytime(parseWeatherData(data).isDaytime);
+      setWeatherType(parseWeatherData(data).weatherType);
     })
   }, []) // dependencies
 
   return (
     <div className='app'>
     <Header onCreateModal={handleCreateModal} city = {city}/>
-    <Main weatherTemp = {temp} onSelectCard={handleSelectedCard}/>
+    <Main weatherTemp = {temp} onSelectCard={handleSelectedCard} weatherType = {weatherType} isDaytime = {isDaytime}/>
     <Footer/>
 
     {activeModal === 'create' && (
