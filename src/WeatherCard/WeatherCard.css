@@ -1,11 +1,16 @@
 .weather {
     position:relative;
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;  
+
 }
 
 .weather_info {
     position: absolute;
     top: 20px;
-    left: 16px;
+    margin-left: 16px;
     color: white;
     font-size: 36px;
 }
