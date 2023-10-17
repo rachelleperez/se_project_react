@@ -14,6 +14,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("") // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}) // empty object as filled one is object from defaultClothingItems
   const [temp, setTemp] = useState(0);
+  const [city, setCity] = useState("");
 
   const handleCreateModal = () => {
     setActiveModal('create');
@@ -32,13 +33,15 @@ function App() {
     getForecastWeather().then((data) => {
       // console.log(data)
       const tempIn = parseWeatherData(data).temperature;
+      const cityIn = parseWeatherData(data).cityName;
       setTemp(tempIn);
+      setCity(cityIn);
     })
   }, []) // dependencies
 
   return (
     <div>
-    <Header onCreateModal={handleCreateModal}/>
+    <Header onCreateModal={handleCreateModal} city = {city}/>
     <Main weatherTemp = {temp} onSelectCard={handleSelectedCard}/>
     <Footer/>
 

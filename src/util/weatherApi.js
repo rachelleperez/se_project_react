@@ -51,14 +51,23 @@ export const parseWeatherData = (data) => {
     const sunsetUnix = data.sys.sunset;
     const isDaytime = (currentTimeUnix >= sunriseUnix) && (currentTimeUnix < sunsetUnix)
     // console.log(isDaytime);
+
+    // Attempt to generate date from timezone
     // console.log(date);
+    // const timezoneOffsetMinutes = date.getTimezoneOffset(); // Get the time zone offset in minutes
+    // console.log(timezoneOffsetMinutes );
+    // date.setTime(date.getTime() - timezoneOffsetMinutes * 60 * 1000); // Note the negative sign for UTC offset
+
+    // const timezoneOffsetSeconds = data.timezone; 
+    // const currentDateInUTC = new Date();
+    // const currentDateInLocation = new Date(currentDateInUTC.getTime() + timezoneOffsetSeconds * 1000);
+    // console.log(currentDateInLocation)
 
     // Extract date based on local time of lat/long 
-    // const hoursFromUTC = data.timezone/3600;
-    // date.setUTCHours(date.getUTCHours() - hoursFromUTC); // -4 hours to go from UTC > EST
-    let day = date.getDate()
-    let month = date.toLocaleString('default', { month: 'long' });
-    let year = date.getFullYear();  // to update Footer
+
+    // let day = date.getDate()
+    // let month = date.toLocaleString('default', { month: 'long' });
+    // let year = date.getFullYear();  // to update Footer
     // console.log(month); // for Header
     // console.log(day); // For Footer
     // console.log(year); // for Footer
@@ -73,9 +82,9 @@ export const parseWeatherData = (data) => {
         cityName: cityName,
         weatherType: weatherType,
         isDaytime: isDaytime,
-        month: month,
-        day: day, 
-        year: year,
+        // month: month,
+        // day: day, 
+        // year: year,
         temperature: temperature
     }
 
