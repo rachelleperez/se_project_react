@@ -9,10 +9,11 @@ import { getForecastWeather, parseWeatherData } from '../util/weatherApi';
 
 
 function App() {
-  const weatherTemp = '50';
+  // const weatherTemp = '50';
 
   const [activeModal, setActiveModal] = useState("") // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}) // empty object as filled one is object from defaultClothingItems
+  const [temp, setTemp] = useState(0);
 
   const handleCreateModal = () => {
     setActiveModal('create');
@@ -30,16 +31,15 @@ function App() {
   useEffect(() => { // app already rendered, then it calls API
     getForecastWeather().then((data) => {
       // console.log(data)
-      parseWeatherData(data);
+      const tempIn = parseWeatherData(data);
+      setTemp(tempIn);
     })
   }, []) // dependencies
-
-  // console.log(selectedCard);
 
   return (
     <div>
     <Header onCreateModal={handleCreateModal}/>
-    <Main weatherTemp = {weatherTemp} onSelectCard={handleSelectedCard}/>
+    <Main weatherTemp = {temp} onSelectCard={handleSelectedCard}/>
     <Footer/>
 
     {activeModal === 'create' && (

@@ -23,6 +23,6 @@ export const getForecastWeather = () => {
 export const parseWeatherData = (data) => {
     const main= data.main
     const temperature = main && main.temp;
-    // console.log(temperature);
-    return temperature
+    // console.log(Math.ceil(temperature));
+    return Math.ceil(temperature) // ceil to round to whole number
 }
