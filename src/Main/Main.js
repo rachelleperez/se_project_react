@@ -18,6 +18,7 @@ function Main({weatherTemp, onSelectCard, weatherType, isDaytime}) {
 
     // console.log(weatherType);
 
+    // keep cards matching current weatherTempLevel
     const filteredCards = defaultClothingItems.filter((item) => {
       // console.log(item)
       return item.weather.toLowerCase().trim() === weatherTempLevel

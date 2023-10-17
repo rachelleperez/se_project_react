@@ -1,9 +1,20 @@
-.card_name {
-    text-align: center;
+.card {
+    /* background-color: blueviolet; */
+    border: 1px solid;
+    border-radius: 15px;
+    border-color: rgba(0,0,0,0.3);
 }
 
-.card_image {
+.card__name {
+    text-align: center;
+    font-size: 24px;
+    padding: 12px 2px 0px 2px;
+    color: rgba(0,0,0,0.6)
+}
+
+.card__image {
     width: 328px;
     height: 328px;
-    border-radius: 10px;
+    border-radius: 15px; 
+    overflow: hidden;
 }
