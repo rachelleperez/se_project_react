@@ -5,7 +5,7 @@ const Footer = () => {
     return (
       <footer className='footer'>
         <div>
-          Developed by Rachelle Perez
+          Developed by TripleTen student: Rachelle Perez
         </div>
         <div>
           2023
