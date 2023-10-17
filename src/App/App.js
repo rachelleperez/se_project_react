@@ -3,8 +3,10 @@ import Header from '../Header/Header'
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer'
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import ItemModal from '../ItemModal/ItemModal';
+import { getForecastWeather } from '../util/weatherApi';
+
 
 function App() {
   const weatherTemp = '50';
@@ -24,6 +26,12 @@ function App() {
     setActiveModal('preview')
     setSelectedCard(card)
   }
+  
+  useEffect(() => { // app already rendered, then it calls API
+    getForecastWeather().then((data) => {
+      console.log(data)
+    })
+  }, []) // dependencies
 
   // console.log(selectedCard);
 
