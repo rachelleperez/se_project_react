@@ -31,7 +31,7 @@ function App() {
   useEffect(() => { // app already rendered, then it calls API
     getForecastWeather().then((data) => {
       // console.log(data)
-      const tempIn = parseWeatherData(data);
+      const tempIn = parseWeatherData(data).temperature;
       setTemp(tempIn);
     })
   }, []) // dependencies
