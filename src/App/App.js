@@ -1,4 +1,5 @@
 import './App.css';
+import 'normalize.css'; 
 import Header from '../Header/Header'
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer'
@@ -40,7 +41,7 @@ function App() {
   }, []) // dependencies
 
   return (
-    <div>
+    <div className='app'>
     <Header onCreateModal={handleCreateModal} city = {city}/>
     <Main weatherTemp = {temp} onSelectCard={handleSelectedCard}/>
     <Footer/>

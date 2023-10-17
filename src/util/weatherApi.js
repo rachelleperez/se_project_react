@@ -62,9 +62,6 @@ export const parseWeatherData = (data) => {
         cityName: cityName,
         weatherType: weatherType,
         isDaytime: isDaytime,
-        // month: month,
-        // day: day, 
-        // year: year,
         temperature: temperature
     }
 

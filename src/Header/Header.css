@@ -5,12 +5,19 @@
     align-items: center;
     min-height: 60px;
     padding: 0 20px;
+
+     /* Same font for all header components*/
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
 }
 
 .header__logo {
     display:flex;
     align-items: center;
     gap: 20px;
+    align-items: center;
+    height: 40px;
 
 }
 
@@ -19,3 +26,45 @@
     align-items: center;
     gap: 20px;
 }
+
+.header__add-clothes-button {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    border: none;
+}
+
+.header__user-name {
+    line-height: 25px;
+}
+
+/* 
+-- date/city
+Font
+Cabinet Grotesk
+Weight
+700
+Size
+20px
+Line height
+24px
+
+-- add clothes
+Font
+Cabinet Grotesk
+Weight
+700
+Size
+20px
+Line height
+24px
+
+-- user name
+Font
+Cabinet Grotesk
+Weight
+700
+Size
+20px
+Line height
+24.8px */
