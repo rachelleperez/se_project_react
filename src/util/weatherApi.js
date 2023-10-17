@@ -46,15 +46,16 @@ export const parseWeatherData = (data) => {
     
     // Extract if daytime or not
     const date = new Date();
-    const currentTimeUTCUnix = Math.floor(date.getTime() / 1000);
-    const sunriseUTCUnix = data.sys.sunrise;
-    const sunsetUTCUnix = data.sys.sunset;
-    const isDaytime = (currentTimeUTCUnix >= sunriseUTCUnix) && (currentTimeUTCUnix < sunsetUTCUnix)
+    const currentTimeUnix = Math.floor(date.getTime() / 1000);
+    const sunriseUnix = data.sys.sunrise;
+    const sunsetUnix = data.sys.sunset;
+    const isDaytime = (currentTimeUnix >= sunriseUnix) && (currentTimeUnix < sunsetUnix)
     // console.log(isDaytime);
+    // console.log(date);
 
     // Extract date based on local time of lat/long 
-    const hoursFromUTC = data.timezone/3600;
-    date.setUTCHours(date.getUTCHours() - hoursFromUTC); // -4 hours to go from UTC > EST
+    // const hoursFromUTC = data.timezone/3600;
+    // date.setUTCHours(date.getUTCHours() - hoursFromUTC); // -4 hours to go from UTC > EST
     let day = date.getDate()
     let month = date.toLocaleString('default', { month: 'long' });
     let year = date.getFullYear();  // to update Footer
