@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer'
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 import {useState, useEffect} from "react";
 import ItemModal from '../ItemModal/ItemModal';
-import { getForecastWeather } from '../util/weatherApi';
+import { getForecastWeather, parseWeatherData } from '../util/weatherApi';
 
 
 function App() {
@@ -29,7 +29,8 @@ function App() {
   
   useEffect(() => { // app already rendered, then it calls API
     getForecastWeather().then((data) => {
-      console.log(data)
+      // console.log(data)
+      parseWeatherData(data);
     })
   }, []) // dependencies
 
