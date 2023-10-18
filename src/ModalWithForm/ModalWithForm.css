@@ -87,6 +87,12 @@
     border-radius: 5px;
 }
 
+.modal__form-submit-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: 3s ease-in-out 0s 1 normal none running;
+  }
+
 .modal__form-subtitle {
     margin: 0;
     margin-bottom: 4px;
