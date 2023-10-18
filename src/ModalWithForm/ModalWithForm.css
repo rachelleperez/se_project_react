@@ -8,16 +8,22 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0,0,0,0.5);
+    /* background-color: red; */
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .modal__content {
     background-color: white;
-    max-width: 496px;
-    width: 100%;
+    /* width: 440px; */
+    border: none;
+    border-width: 0px;
     border-radius: 20px;
-    padding: 34px 36px;
+    padding: 28px 28px;
     position: relative;
-    /* background-color: blue; */
+    width: 440px;
+    max-height: 436px;
+    /* background-color: coral; */
 
 }
 
@@ -28,7 +34,7 @@
     border: none;
     background-color: transparent;
     color: rgba(0,0,0,0.3);
-    font-size: 20px;
+    font-size: 16px;
     width: 20px;
     /* display: inline-block; */
     /* background-color: aqua; */
@@ -42,7 +48,7 @@
     margin-block-start: 0;
     margin-block-end: 0;
     font-size: 20px ;
-    padding-bottom: 30px;
+    padding-bottom: 24px;
 }
 
 /* .modal__form {
@@ -50,11 +56,57 @@
     flex-direction: column;
 } */
 
+.modal__form-label {
+    margin: 0 0 0 0;
+    /* background-color: red; */
+
+}
+
 .modal__form-text-input {
     width: 100%;
+    margin-top: 8px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: black;
+    border-width: 1px;
+    background-color: inherit;
+    margin-top: 8px;
+    margin-bottom: 24px;
 }
 
 .modal__form-submit-button {
     width: 124px;
     height: 36px;
+    margin-top: 24px;
+    margin-bottom: 36px;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0.3);
+    border:none;
+    border-radius: 5px;
 }
+
+.modal__form-subtitle {
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.modal__form-radio-container {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: rgba(0,0,0,0.5);
+
+}
+
+.modal__form-radio-label {
+    margin-left: 11px;;
+}
+
+.modal__form-radio-input:checked + .modal__form-radio-label {
+    color:black;
+}
+
+/* .modal_type_addGarment {
+    width: 496px;
+} */
