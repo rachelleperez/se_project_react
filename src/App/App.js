@@ -9,7 +9,6 @@ import AddItemModal from '../AddItemModal/AddItemModal';
 import ItemModal from '../ItemModal/ItemModal';
 import { getForecastWeather, parseWeatherData } from '../util/weatherApi';
 
-
 function App() {
   // const weatherTemp = '50';
 
@@ -25,12 +24,21 @@ function App() {
   }
 
   const handleCloseModal = () => {
+    console.log('close Modal');
     setActiveModal("");
   }
 
   const handleSelectedCard = (card) => {
     setActiveModal('preview')
     setSelectedCard(card)
+  }
+
+  // temp pending API work
+  const handleAddItemSubmit = (data) => {
+    console.log('NEW ITEM!');
+    console.log(data.itemName);
+    console.log(data.itemLink);
+    console.log(data.itemWeather);
   }
   
   useEffect(() => { // app already rendered, then it calls API
@@ -48,7 +56,7 @@ function App() {
     <Main weatherTemp = {temp} onSelectCard={handleSelectedCard} weatherType = {weatherType} isDaytime = {isDaytime}/>
     <Footer/>
 
-    {activeModal === 'create' && <AddItemModal onClose={handleCloseModal} />}
+    {activeModal === 'create' && <AddItemModal onClose={handleCloseModal} onAddItem = {handleAddItemSubmit}/>}
 
     {activeModal ==='preview' && <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />} 
 
