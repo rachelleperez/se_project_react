@@ -5,18 +5,22 @@ const AddItemModal = ({onClose, onAddItem}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
         console.log('AddItem Form Submit');
 
-        onAddItem({ 
-            itemName: 'umbrella',
-            itemLink: 'https://images.unsplash.com/photo-1584036553516-bf83210aa16c?auto=format&fit=crop&q=80&w=1580&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            itemWeather: 'hot'
-        }); // temp: hard-coded
+        const formData = new FormData(e.target);
+        const formProps = Object.fromEntries(formData);
 
-        // onAddItem({ itemName, itemLink, itemWeather}); // passing data object
+        const data = { 
+            itemName: formProps.itemName,
+            itemLink: formProps.itemLink,
+            itemWeather: formProps.itemWeather
+        }
+
+        onAddItem(data); 
 
         // close after submitted
-        onClose();
+        // onClose();
     };
 
     return (
