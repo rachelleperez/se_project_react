@@ -3,8 +3,9 @@ import 'normalize.css';
 import Header from '../Header/Header'
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer'
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
+
 import {useState, useEffect} from "react";
+import AddItemModal from '../AddItemModal/AddItemModal';
 import ItemModal from '../ItemModal/ItemModal';
 import { getForecastWeather, parseWeatherData } from '../util/weatherApi';
 
@@ -47,31 +48,7 @@ function App() {
     <Main weatherTemp = {temp} onSelectCard={handleSelectedCard} weatherType = {weatherType} isDaytime = {isDaytime}/>
     <Footer/>
 
-    {activeModal === 'create' && (
-      <ModalWithForm title='New garment' onClose={handleCloseModal} name ='addGarment'>
-        <label className='modal__form-label'>
-          Name<input className = 'modal__form-text-input' type='text' name='name' minLength='1'maxLength = '30' placeholder='Name'/>
-        </label>
-        <label className='modal__form-label'>
-          Image<input className = 'modal__form-text-input'type='url' name='link' minLength='1'maxLength = '30'placeholder='Image URL'/>
-        </label>
-        <p className='modal__form-subtitle'>Select the weather type:</p>
-        <div>
-          <div className = 'modal__form-radio-container'>
-            <input className = 'modal__form-radio-input' type='radio' id='hot' value='hot' name='weather'/>
-            <label className = 'modal__form-radio-label' >Hot</label>
-          </div>
-          <div className = 'modal__form-radio-container'>
-            <input className = 'modal__form-radio-input' type='radio' id='warm' value='warm' name='weather'/>
-            <label className = 'modal__form-radio-label'>Warm</label>
-          </div>
-          <div className = 'modal__form-radio-container'>
-            <input className = 'modal__form-radio-input' type='radio' id='cold' value='cold' name='weather'/>
-            <label className = 'modal__form-radio-label' >Cold</label>
-          </div>
-        </div>
-      </ModalWithForm>
-    )}
+    {activeModal === 'create' && <AddItemModal onClose={handleCloseModal} />}
 
     {activeModal ==='preview' && <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />} 
 
