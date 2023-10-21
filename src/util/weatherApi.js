@@ -57,7 +57,7 @@ export const parseWeatherData = (data) => {
     const temperature = main && Math.ceil(main.temp); // ceil to round to whole number
     // console.log(temperature);
 
-    // summary of parsed data
+    // Summary of parsed data
     const parsedData = {
         cityName: cityName,
         weatherType: weatherType,
