@@ -60,19 +60,18 @@ function App() {
 
   // close upon Esc
   useEffect(() => {
-    if (activeModal) {
-      const handleEsc = (e) => {
-        if (e.key === "Escape") {
-          handleCloseModal();
-        }
-      };
-      window.addEventListener("keydown", handleEsc);
-      return () => {
-        window.removeEventListener("keydown", handleEsc);
-      };
-    } else {
-      return;
-    }
+    if (!activeModal) return; // here you stop the effect
+
+    const handleEsc = (e) => {
+      // here the effect will proceed if the modal is active
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
   }, [activeModal]);
 
   return (
