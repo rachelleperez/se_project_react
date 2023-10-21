@@ -1,12 +1,12 @@
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 
 const AddItemModal = ({onClose, onAddItem, handleClickModalOverlay}) => {
-    console.log('item modal');
+    // console.log('item modal');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        console.log('AddItem Form Submit');
+        // console.log('AddItem Form Submit');
 
         const formData = new FormData(e.target);
         const formProps = Object.fromEntries(formData);

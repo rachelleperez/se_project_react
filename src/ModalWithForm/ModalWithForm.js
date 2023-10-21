@@ -1,8 +1,7 @@
 import './ModalWithForm.css';
 
-
 const ModalWithForm = ({children, buttonText = "Add Garment", title, onClose, name, onSubmit, handleClickModalOverlay}) => {
-    console.log('ModalWithForm');
+    // console.log('ModalWithForm');
 
     const handleClose = (e) => {
         e.preventDefault();

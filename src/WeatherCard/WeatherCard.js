@@ -3,7 +3,7 @@ import {weatherOptions} from '../util/constants';
 
 const WeatherCard = ({day, type, weatherTemp}) => {
     
-    console.log('weather card');
+    // console.log('weather card');
 
     const imageSrc = weatherOptions.filter((i) => {
         return i.day === day && i.type === type;

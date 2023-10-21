@@ -1,7 +1,7 @@
 import './ItemModal.css';
 
 const ItemModal = ({selectedCard, onClose, handleClickModalOverlay}) => {
-    console.log('item modal');
+    // console.log('item modal');
 
     const handleClose = (e) => {
         e.preventDefault();

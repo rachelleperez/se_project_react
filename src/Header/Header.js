@@ -1,7 +1,7 @@
 import './Header.css'
 
 const Header = ({onCreateModal, city}) => {
-    console.log('Header');
+    // console.log('Header');
 
     const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
 

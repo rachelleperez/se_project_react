@@ -24,7 +24,7 @@ function App() {
   }
 
   const handleCloseModal = () => {
-    console.log('close Modal App.js');
+    // console.log('close Modal App.js');
     // console.log(activeModal);
     setActiveModal(''); //TODO: page keeps refreshing but can't identify reason.
   }
