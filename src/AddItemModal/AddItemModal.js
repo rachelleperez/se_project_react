@@ -20,7 +20,7 @@ const AddItemModal = ({onClose, onAddItem}) => {
         onAddItem(data); 
 
         // close after submitted
-        // onClose();
+        onClose();
     };
 
     return (

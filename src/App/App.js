@@ -12,7 +12,7 @@ import { getForecastWeather, parseWeatherData } from '../util/weatherApi';
 function App() {
   // const weatherTemp = '50';
 
-  const [activeModal, setActiveModal] = useState("") // sets default state for modals
+  const [activeModal, setActiveModal] = useState('') // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}) // empty object as filled one is object from defaultClothingItems
   const [temp, setTemp] = useState(0);
   const [city, setCity] = useState("");
@@ -24,8 +24,9 @@ function App() {
   }
 
   const handleCloseModal = () => {
-    console.log('close Modal');
-    setActiveModal("");
+    console.log('close Modal App.js');
+    // console.log(activeModal);
+    setActiveModal(''); //TODO: page keeps refreshing but can't identify reason.
   }
 
   const handleSelectedCard = (card) => {
