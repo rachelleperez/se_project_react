@@ -51,6 +51,24 @@ function App() {
     })
   }, []) // dependencies
 
+  // close upon Esc
+  useEffect(() => {
+    if (activeModal) {
+
+      const handleEsc = (e) => {
+        if (e.key === "Escape") {
+          handleCloseModal();
+        }
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }
+
+    else {return;}
+  }, [activeModal]);
+
   return (
     <div className='app'>
     <Header onCreateModal={handleCreateModal} city = {city}/>
