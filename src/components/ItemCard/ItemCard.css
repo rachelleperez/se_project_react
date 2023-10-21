@@ -1,39 +1,39 @@
 .card {
-    /* background-color: blueviolet; */
-    border: 1px solid;
-    border-radius: 15px;
-    border-color: rgba(0, 0, 0, 0.3);
-    position: relative;
-    width: 325px; 
-    height: 328px; 
+  /* background-color: blueviolet; */
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 325px;
+  height: 328px;
 }
 
 .card__content {
-    position: relative;
+  position: relative;
 }
 
 .card__name {
-    text-align: center;
-    font-size: 24px;
-    padding: 12px 2px 0px 2px;
-    color: rgba(0, 0, 0, 0.6);
-    margin-top: 15px;
+  text-align: center;
+  font-size: 24px;
+  padding: 12px 2px 0px 2px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 15px;
 }
 
 .card__name-span {
-    background-color: #FFFFFF;
-    padding: 0px 12px;
-    margin-right: 10px;
-    border-radius: 10px;
-    /* background-color: firebrick; */
+  background-color: #ffffff;
+  padding: 0px 12px;
+  margin-right: 10px;
+  border-radius: 10px;
+  /* background-color: firebrick; */
 }
 
 .card__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }

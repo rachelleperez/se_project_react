@@ -1,20 +1,19 @@
 .main {
-    padding: 0 40px;
-    font-weight: 700;
+  padding: 0 40px;
+  font-weight: 700;
 }
 
 .card_section {
-    font-size: 25px;
-    /* background-color: blue; */
-    padding-top: 40px;
+  font-size: 25px;
+  /* background-color: blue; */
+  padding-top: 40px;
 }
 
 .card_items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content:left;
-    margin-top: 40px ;
-    /* background-color: blueviolet; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: left;
+  margin-top: 40px;
+  /* background-color: blueviolet; */
 }
-

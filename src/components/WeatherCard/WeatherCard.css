@@ -1,20 +1,19 @@
 .weather {
-    position:relative;
-    height: 80px;
-    border-radius: 12px;
-    display: flex;
-    overflow: hidden; 
-
+  position: relative;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  overflow: hidden;
 }
 
 .weather_info {
-    position: absolute;
-    top: 20px;
-    margin-left: 16px;
-    color: white;
-    font-size: 36px;
+  position: absolute;
+  top: 20px;
+  margin-left: 16px;
+  color: white;
+  font-size: 36px;
 }
 
 .weather_image {
-    width:100%;
+  width: 100%;
 }
