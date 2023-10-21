@@ -2,19 +2,38 @@
     /* background-color: blueviolet; */
     border: 1px solid;
     border-radius: 15px;
-    border-color: rgba(0,0,0,0.3);
+    border-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 325px; 
+    height: 328px; 
+}
+
+.card__content {
+    position: relative;
+    z-index: 1;
 }
 
 .card__name {
     text-align: center;
     font-size: 24px;
     padding: 12px 2px 0px 2px;
-    color: rgba(0,0,0,0.6)
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 15px;
+}
+
+.card__name-span {
+    background-color: #FFFFFF;
+    padding: 0px 12px;
+    border-radius: 10px;
+    /* background-color: firebrick; */
 }
 
 .card__image {
-    width: 328px;
-    height: 328px;
-    border-radius: 15px; 
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
