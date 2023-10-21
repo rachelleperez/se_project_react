@@ -112,7 +112,3 @@
 .modal__form-radio-input:checked + .modal__form-radio-label {
     color:black;
 }
-
-/* .modal_type_addGarment {
-    width: 496px;
-} */
