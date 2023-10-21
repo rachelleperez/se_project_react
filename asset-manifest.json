@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rachelleperez/se_project_react/static/css/main.82c08696.css",
+    "main.js": "/rachelleperez/se_project_react/static/js/main.b8279d0f.js",
+    "static/js/787.79f92504.chunk.js": "/rachelleperez/se_project_react/static/js/787.79f92504.chunk.js",
+    "index.html": "/rachelleperez/se_project_react/index.html",
+    "main.82c08696.css.map": "/rachelleperez/se_project_react/static/css/main.82c08696.css.map",
+    "main.b8279d0f.js.map": "/rachelleperez/se_project_react/static/js/main.b8279d0f.js.map",
+    "787.79f92504.chunk.js.map": "/rachelleperez/se_project_react/static/js/787.79f92504.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82c08696.css",
+    "static/js/main.b8279d0f.js"
+  ]
+}
