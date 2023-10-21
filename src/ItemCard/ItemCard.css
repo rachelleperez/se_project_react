@@ -10,7 +10,6 @@
 
 .card__content {
     position: relative;
-    z-index: 1;
 }
 
 .card__name {
