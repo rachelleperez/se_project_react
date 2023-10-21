@@ -1,7 +1,7 @@
 import './ModalWithForm.css';
 
 
-const ModalWithForm = ({children, buttonText = "Add Garment", title, onClose, name, onSubmit}) => {
+const ModalWithForm = ({children, buttonText = "Add Garment", title, onClose, name, onSubmit, handleClickModalOverlay}) => {
     console.log('ModalWithForm');
 
     const handleClose = (e) => {
@@ -10,7 +10,7 @@ const ModalWithForm = ({children, buttonText = "Add Garment", title, onClose, na
     };
 
     return (
-        <div className= {`modal modal_type_${name}`}>
+        <div className= {`modal modal_type_${name}`} onMouseDown={handleClickModalOverlay}>
             <div className='modal__content'>
                 <div className='modal__header'>
                     <button className= 'modal__close-button' type='button' onClick={handleClose}>&#x2715;</button>

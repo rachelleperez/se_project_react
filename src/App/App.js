@@ -41,6 +41,12 @@ function App() {
     console.log(data.itemLink);
     console.log(data.itemWeather);
   }
+
+  const handleClickModalOverlay = (e) => {
+    if (e.target.classList.contains('modal')) {
+      handleCloseModal();
+    }
+  };
   
   useEffect(() => { // app already rendered, then it calls API
     getForecastWeather().then((data) => {
@@ -75,9 +81,9 @@ function App() {
     <Main weatherTemp = {temp} onSelectCard={handleSelectedCard} weatherType = {weatherType} isDaytime = {isDaytime}/>
     <Footer/>
 
-    {activeModal === 'create' && <AddItemModal onClose={handleCloseModal} onAddItem = {handleAddItemSubmit}/>}
+    {activeModal === 'create' && <AddItemModal onClose={handleCloseModal} onAddItem = {handleAddItemSubmit} handleClickModalOverlay={handleClickModalOverlay}/>}
 
-    {activeModal ==='preview' && <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />} 
+    {activeModal ==='preview' && <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} handleClickModalOverlay={handleClickModalOverlay}/>} 
 
     </div>
   );

@@ -1,6 +1,6 @@
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 
-const AddItemModal = ({onClose, onAddItem}) => {
+const AddItemModal = ({onClose, onAddItem, handleClickModalOverlay}) => {
     console.log('item modal');
 
     const handleSubmit = (e) => {
@@ -24,7 +24,7 @@ const AddItemModal = ({onClose, onAddItem}) => {
     };
 
     return (
-        <ModalWithForm title='New garment' onClose={onClose} onSubmit={handleSubmit} name ='addGarment'>
+        <ModalWithForm title='New garment' onClose={onClose} onSubmit={handleSubmit} name ='addGarment' handleClickModalOverlay = {handleClickModalOverlay}>
             <label className='modal__form-label'>
             Name<input className = 'modal__form-text-input' type='text' name='itemName' minLength='1'maxLength = '30' placeholder='Name' required/>
             </label>
