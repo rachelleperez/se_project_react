@@ -10,11 +10,11 @@ const ItemCard = ({ item, onSelectCard}) => {
 
     return (
         <div className='card'>
-            <img src={item.link} className='card__image' onClick={() => onSelectCard(item)} />
+            <img src={item.link} className='card__image' alt={item.name} onClick={() => onSelectCard(item)} />
             <div className='card__content'>
                 <div className='card__name'>
                     <span className='card__name-span'>{item.name}</span>
-                    <img src={likeSrc} className='card__like-button' onClick={() => handleLike(item)} />
+                    <img src={likeSrc} className='card__like-button' alt='close' onClick={() => handleLike(item)} />
                 </div>
             </div>
         </div>
