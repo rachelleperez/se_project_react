@@ -32,7 +32,7 @@ const Header = ({ onCreateModal, city }) => {
             + Add clothes{" "}
           </button>
         </div>
-        <div className="header__user-name">Terrance Tegegne</div>
+        <p className="header__user-name">Terrance Tegegne</p>
         <div>
           <img src={avatarImage} alt="avatar" />
         </div>
