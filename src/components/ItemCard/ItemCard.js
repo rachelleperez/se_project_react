@@ -17,7 +17,7 @@ const ItemCard = ({ item, onSelectCard }) => {
       />
       <div className="card__content">
         <div className="card__name">
-          <span className="card__name-span">{item.name}</span>
+          <p className="card__name-span">{item.name}</p>
           <img
             src={likeSrc}
             className="card__like-button"
