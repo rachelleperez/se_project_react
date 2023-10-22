@@ -24,8 +24,8 @@ const ItemModal = ({ selectedCard, onClose, handleClickModalOverlay }) => {
           alt={selectedCard.name}
         />
         <div className="modal__image-caption">
-          <div>{selectedCard.name}</div>
-          <div> Weather: {selectedCard.weather}</div>
+          <p>{selectedCard.name}</p>
+          <p> Weather: {selectedCard.weather}</p>
         </div>
       </div>
     </div>
