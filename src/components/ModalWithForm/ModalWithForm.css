@@ -97,7 +97,9 @@
 }
 
 .modal__form-radio-label {
-  margin-left: 11px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
 }
 
 .modal__form-radio-input:checked + .modal__form-radio-label {
