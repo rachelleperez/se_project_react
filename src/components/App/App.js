@@ -50,12 +50,16 @@ function App() {
 
   useEffect(() => {
     // app already rendered, then it calls API
-    getForecastWeather().then((data) => {
-      setTemp(parseWeatherData(data).temperature);
-      setCity(parseWeatherData(data).cityName);
-      setIsDaytime(parseWeatherData(data).isDaytime);
-      setWeatherType(parseWeatherData(data).weatherType);
-    });
+    getForecastWeather()
+      .then((data) => {
+        setTemp(parseWeatherData(data).temperature);
+        setCity(parseWeatherData(data).cityName);
+        setIsDaytime(parseWeatherData(data).isDaytime);
+        setWeatherType(parseWeatherData(data).weatherType);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []); // dependencies
 
   // close upon Esc
