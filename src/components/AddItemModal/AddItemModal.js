@@ -58,34 +58,40 @@ const AddItemModal = ({ onClose, onAddItem, handleClickModalOverlay }) => {
       <p className="modal__form-subtitle">Select the weather type:</p>
       <div>
         <div className="modal__form-radio-container">
-          <input
-            className="modal__form-radio-input"
-            type="radio"
-            id="hot"
-            value="hot"
-            name="itemWeather"
-          />
-          <label className="modal__form-radio-label">Hot</label>
+          <label className="modal__form-radio-label">
+            Hot
+            <input
+              className="modal__form-radio-input"
+              type="radio"
+              id="hot"
+              value="hot"
+              name="itemWeather"
+            />
+          </label>
         </div>
         <div className="modal__form-radio-container">
-          <input
-            className="modal__form-radio-input"
-            type="radio"
-            id="warm"
-            value="warm"
-            name="itemWeather"
-          />
-          <label className="modal__form-radio-label">Warm</label>
+          <label className="modal__form-radio-label">
+            Warm
+            <input
+              className="modal__form-radio-input"
+              type="radio"
+              id="warm"
+              value="warm"
+              name="itemWeather"
+            />
+          </label>
         </div>
         <div className="modal__form-radio-container">
-          <input
-            className="modal__form-radio-input"
-            type="radio"
-            id="cold"
-            value="cold"
-            name="itemWeather"
-          />
-          <label className="modal__form-radio-label">Cold</label>
+          <label className="modal__form-radio-label">
+            Cold
+            <input
+              className="modal__form-radio-input"
+              type="radio"
+              id="cold"
+              value="cold"
+              name="itemWeather"
+            />
+          </label>
         </div>
       </div>
     </ModalWithForm>
