@@ -42,12 +42,6 @@ function App() {
     console.log(data.itemWeather);
   };
 
-  const handleClickModalOverlay = (e) => {
-    if (e.target.classList.contains("modal")) {
-      handleCloseModal();
-    }
-  };
-
   useEffect(() => {
     // app already rendered, then it calls API
     getForecastWeather()
@@ -62,7 +56,7 @@ function App() {
       });
   }, []); // dependencies
 
-  // close upon Esc
+  // close upon Esc and overlay
   useEffect(() => {
     if (!activeModal) return; // here you stop the effect
 
@@ -73,17 +67,17 @@ function App() {
       }
     };
 
-    const handleClickModalOverlayEsc = (e) => {
+    const handleClickModalOverlay = (e) => {
       if (e.target.classList.contains("modal")) {
         handleCloseModal();
       }
     };
 
     window.addEventListener("keydown", handleEsc);
-    window.addEventListener("mousedown", handleClickModalOverlayEsc);
+    window.addEventListener("mousedown", handleClickModalOverlay);
     return () => {
       window.removeEventListener("keydown", handleEsc);
-      window.removeEventListener("mousedown", handleClickModalOverlayEsc);
+      window.removeEventListener("mousedown", handleClickModalOverlay);
     };
   }, [activeModal]);
 
@@ -102,16 +96,11 @@ function App() {
         <AddItemModal
           onClose={handleCloseModal}
           onAddItem={handleAddItemSubmit}
-          handleClickModalOverlay={handleClickModalOverlay}
         />
       )}
 
       {activeModal === "preview" && (
-        <ItemModal
-          selectedCard={selectedCard}
-          onClose={handleCloseModal}
-          handleClickModalOverlay={handleClickModalOverlay}
-        />
+        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
       )}
     </div>
   );

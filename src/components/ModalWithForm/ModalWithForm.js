@@ -7,7 +7,6 @@ const ModalWithForm = ({
   onClose,
   name,
   onSubmit,
-  handleClickModalOverlay,
 }) => {
   // console.log('ModalWithForm');
 
@@ -17,10 +16,7 @@ const ModalWithForm = ({
   };
 
   return (
-    <div
-      className={`modal modal_type_${name}`}
-      onMouseDown={handleClickModalOverlay}
-    >
+    <div className={`modal modal_type_${name}`}>
       <div className="modal__content">
         <div className="modal__header">
           <button

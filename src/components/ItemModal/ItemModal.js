@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose, handleClickModalOverlay }) => {
+const ItemModal = ({ selectedCard, onClose }) => {
   // console.log('item modal');
 
   const handleClose = (e) => {
@@ -9,7 +9,7 @@ const ItemModal = ({ selectedCard, onClose, handleClickModalOverlay }) => {
   };
 
   return (
-    <div className={"modal"} onMouseDown={handleClickModalOverlay}>
+    <div className={"modal"}>
       <div className="modal__content modal__content-image">
         <button
           className="modal__close-button"
