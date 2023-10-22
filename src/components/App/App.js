@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
@@ -73,11 +73,17 @@ function App() {
       }
     };
 
+    const handleClickModalOverlayEsc = (e) => {
+      if (e.target.classList.contains("modal")) {
+        handleCloseModal();
+      }
+    };
+
     window.addEventListener("keydown", handleEsc);
-    window.addEventListener("mousedown", handleClickModalOverlay);
+    window.addEventListener("mousedown", handleClickModalOverlayEsc);
     return () => {
       window.removeEventListener("keydown", handleEsc);
-      window.removeEventListener("mousedown", handleClickModalOverlay);
+      window.removeEventListener("mousedown", handleClickModalOverlayEsc);
     };
   }, [activeModal]);
 
