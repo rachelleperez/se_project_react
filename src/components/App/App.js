@@ -56,7 +56,7 @@ function App() {
       });
   }, []); // dependencies
 
-  // close upon Esc and overlay
+  // close upon Esc and click overlay
   useEffect(() => {
     if (!activeModal) return; // here you stop the effect
 
