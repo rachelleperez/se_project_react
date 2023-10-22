@@ -72,9 +72,12 @@ function App() {
         handleCloseModal();
       }
     };
+
     window.addEventListener("keydown", handleEsc);
+    window.addEventListener("mousedown", handleClickModalOverlay);
     return () => {
       window.removeEventListener("keydown", handleEsc);
+      window.removeEventListener("mousedown", handleClickModalOverlay);
     };
   }, [activeModal]);
 
