@@ -44,17 +44,18 @@ function App() {
 
   // temp pending API work
   const handleAddItemSubmit = (item) => {
-    // console.log("NEW ITEM!");
-    // console.log(data.itemName);
-    // console.log(data.itemLink);
-    // console.log(data.itemWeather);
-    api
-      .addItem(item)
-      .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
-        handleCloseModal();
-      })
-      .catch((err) => console.log(err));
+    console.log("NEW ITEM!");
+    console.log(item.itemName);
+    console.log(item.itemLink);
+    console.log(item.itemWeather);
+
+    // api
+    //   .addItem(item)
+    //   .then((newItem) => {
+    //     setClothingItems([newItem, ...clothingItems]);
+    //     handleCloseModal();
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const handleCardDelete = (card) => {
@@ -113,19 +114,19 @@ function App() {
 
   return (
     <div className="app">
-      <CurrentTemperatureUnitContext.Provider
-      // value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      >
-        <BrowserRouter>
-          <Header onCreateModal={handleCreateModal} city={city} />
-          <Main
-            weatherTemp={temp}
-            onSelectCard={handleSelectedCard}
-            weatherType={weatherType}
-            isDaytime={isDaytime}
-          />
+      {/* <CurrentTemperatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      > */}
+      <BrowserRouter>
+        <Header onCreateModal={handleCreateModal} city={city} />
+        <Main
+          weatherTemp={temp}
+          onSelectCard={handleSelectedCard}
+          weatherType={weatherType}
+          isDaytime={isDaytime}
+        />
 
-          {/* <Switch>
+        {/* <Switch>
             <Route
               exact
               path="/"
@@ -155,20 +156,20 @@ function App() {
             />
           </Switch> */}
 
-          <Footer />
-        </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
 
-        {activeModal === "create" && (
-          <AddItemModal
-            onClose={handleCloseModal}
-            onAddItem={handleAddItemSubmit}
-          />
-        )}
+      {activeModal === "create" && (
+        <AddItemModal
+          onClose={handleCloseModal}
+          onAddItem={handleAddItemSubmit}
+        />
+      )}
 
-        {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
-        )}
-      </CurrentTemperatureUnitContext.Provider>
+      {activeModal === "preview" && (
+        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+      )}
+      {/* </CurrentTemperatureUnitContext.Provider> */}
     </div>
   );
 }
