@@ -11,6 +11,7 @@
 }
 
 .modal__image-caption {
+  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   padding-left: 32px;
@@ -19,4 +20,18 @@
   gap: 12px;
   font-size: 20px;
   line-height: 24px;
+}
+
+.modal__image-caption-line1 {
+  /* background-color: green; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__image-delete-button {
+  background-color: transparent;
+  border: none;
+  padding-right: 32px;
+  color: red;
+  cursor: pointer;
 }

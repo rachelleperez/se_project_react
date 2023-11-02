@@ -62,16 +62,13 @@ function App() {
   };
 
   const handleCardDelete = (card) => {
-    api
-      .removeItem(card.id)
-      .then(() => {
-        setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const handleCardClick = (card) => {
-    console.log("card was clicked");
+    console.log("delete this card");
+    // api
+    //   .removeItem(card.id)
+    //   .then(() => {
+    //     setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   const handleToggleSwitchChange = () => {
@@ -159,7 +156,11 @@ function App() {
         )}
 
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            onCardDelete={handleCardDelete}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

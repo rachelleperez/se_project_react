@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
   // console.log('item modal');
 
   const handleClose = (e) => {
@@ -24,7 +24,17 @@ const ItemModal = ({ selectedCard, onClose }) => {
           alt={selectedCard.name}
         />
         <div className="modal__image-caption">
-          <p>{selectedCard.name}</p>
+          <div className="modal__image-caption-line1">
+            <p>{selectedCard.name}</p>
+            <button
+              className="modal__image-delete-button"
+              type="text"
+              onClick={onCardDelete}
+            >
+              {" "}
+              Delete item{" "}
+            </button>
+          </div>
           <p> Weather: {selectedCard.weather}</p>
         </div>
       </div>
