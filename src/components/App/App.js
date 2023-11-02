@@ -124,49 +124,26 @@ function App() {
       >
         <BrowserRouter>
           <Header onCreateModal={handleCreateModal} city={city} />
-          {/* <Main
-            weatherTemp={tempF}
-            onSelectCard={handleSelectedCard}
-            weatherType={weatherType}
-            isDaytime={isDaytime}
-          /> */}
 
-          <Profile
-            itemData={clothingItems} //temp
-            onSelectCard={handleSelectedCard}
-            onCardDelete={handleCardDelete}
-            onAddNewClick={() => setActiveModal("create")}
-          />
+          <Switch>
+            <Route exact path="/profile">
+              <Profile
+                itemData={clothingItems}
+                onSelectCard={handleSelectedCard}
+                onCardDelete={handleCardDelete}
+                onAddNewClick={() => setActiveModal("create")}
+              />
+            </Route>
 
-          {/* <Switch>
-            <Route
-              exact
-              path="/"
-              element={
-                <Main
-                  weatherTemp={temp}
-                  onSelectCard={handleSelectedCard}
-                  weatherType={weatherType}
-                  isDaytime={isDaytime}
-                />
-              }
-            />
-
-            <Route
-              exact
-              path="/profile"
-              element={
-                clothingItems.length !== 0 && (
-                  <Profile
-                    cards={clothingItems}
-                    // onCardClick={handleCardClick}
-                    onCardDelete={handleCardDelete}
-                    onAddNewClick={() => setActiveModal("create")}
-                  />
-                )
-              }
-            />
-          </Switch> */}
+            <Route path="/">
+              <Main
+                weatherTemp={tempF}
+                onSelectCard={handleSelectedCard}
+                weatherType={weatherType}
+                isDaytime={isDaytime}
+              />
+            </Route>
+          </Switch>
 
           <Footer />
         </BrowserRouter>

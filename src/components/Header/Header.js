@@ -1,5 +1,6 @@
 import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 
 const logoImagePath = "/images/logo.svg";
 const avatarImagePath = "/images/avatar.svg";
@@ -14,16 +15,16 @@ const Header = ({ onCreateModal, city }) => {
 
   return (
     <header className="header">
-      <div className="header__logo">
-        <div>
+      <div className="header__left">
+        <Link to="/">
           <img src={logoImagePath} alt="logo" />
-        </div>
+        </Link>
         <div>
           {" "}
           {currentDate}, {city}{" "}
         </div>
       </div>
-      <div className="header__avatar-logo">
+      <div className="header__right">
         <ToggleSwitch />
         <div>
           <button
@@ -35,10 +36,14 @@ const Header = ({ onCreateModal, city }) => {
             + Add clothes{" "}
           </button>
         </div>
-        <p className="header__user-name">Terrance Tegegne</p>
-        <div>
+
+        <Link className="header__user_name-link" to="/profile">
+          <p className="header__user-name">Terrance Tegegne</p>
+        </Link>
+
+        <Link to="/profile">
           <img src={avatarImagePath} alt="avatar" />
-        </div>
+        </Link>
       </div>
     </header>
   );

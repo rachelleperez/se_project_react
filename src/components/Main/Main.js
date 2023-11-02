@@ -36,7 +36,6 @@ function Main({ weatherTemp, onSelectCard, weatherType, isDaytime }) {
 
   return (
     <main className="main">
-      This is Main
       <WeatherCard
         day={isDaytime}
         type={weatherType}

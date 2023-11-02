@@ -13,7 +13,7 @@
   font-weight: 700;
 }
 
-.header__logo {
+.header__left {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -21,7 +21,7 @@
   height: 40px;
 }
 
-.header__avatar-logo {
+.header__right {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -36,4 +36,10 @@
 
 .header__user-name {
   line-height: 25px;
+}
+
+/* override link default */
+.header__user_name-link {
+  text-decoration: none;
+  color: black;
 }
