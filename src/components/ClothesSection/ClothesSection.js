@@ -9,6 +9,17 @@ const ClothesSection = ({
 }) => {
   return (
     <div className="clothes-section">
+      <div className="clothes-section__header ">
+        <p className="clothes_section__title">Your Items</p>
+        <button
+          type="text"
+          onClick={onAddNewClick}
+          className="header__add-clothes-button clothes-section__add-clothes-button"
+        >
+          {" "}
+          + Add clothes{" "}
+        </button>
+      </div>
       <div
         className="card_items clothes-section__items"
         id="profile-card-items"

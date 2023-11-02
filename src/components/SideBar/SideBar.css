@@ -1,10 +1,10 @@
 .sidebar {
-  background-color: red;
+  /* background-color: red; */
   width: 345px; /* 229 + 116 */
 }
 
 .sidebar__user {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   display: flex;
   height: 56px;
   gap: 16px;
