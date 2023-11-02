@@ -22,7 +22,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState(""); // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}); // empty object as filled one is object from defaultClothingItems
-  const [temp, setTemp] = useState(0);
+  const [tempF, setTemp] = useState(0);
   const [city, setCity] = useState("");
   const [isDaytime, setIsDaytime] = useState(true);
   const [weatherType, setWeatherType] = useState("sunny");
@@ -68,19 +68,16 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    console.log(currentTemperatureUnit);
     currentTemperatureUnit === "F"
       ? setCurrentTemperatureUnit("C")
       : setCurrentTemperatureUnit("F");
-
-    console.log(currentTemperatureUnit);
   };
 
   useEffect(() => {
     // app already rendered, then it calls API
     getForecastWeather()
       .then((data) => {
-        setTemp(parseWeatherData(data).temperature);
+        setTemp(parseWeatherData(data).temperatureF);
         setCity(parseWeatherData(data).cityName);
         setIsDaytime(parseWeatherData(data).isDaytime);
         setWeatherType(parseWeatherData(data).weatherType);
@@ -123,7 +120,7 @@ function App() {
         <BrowserRouter>
           <Header onCreateModal={handleCreateModal} city={city} />
           <Main
-            weatherTemp={temp}
+            weatherTemp={tempF}
             onSelectCard={handleSelectedCard}
             weatherType={weatherType}
             isDaytime={isDaytime}

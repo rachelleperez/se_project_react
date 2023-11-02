@@ -2,7 +2,9 @@ import WeatherCard from "./../WeatherCard/WeatherCard";
 import ItemCard from "./../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 import "./Main.css";
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
+
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ weatherTemp, onSelectCard, weatherType, isDaytime }) {
   const weatherTempLevel = useMemo(() => {
@@ -23,17 +25,25 @@ function Main({ weatherTemp, onSelectCard, weatherType, isDaytime }) {
     return item.weather.toLowerCase().trim() === weatherTempLevel;
   });
 
-  // console.log(filteredCards);
+  // prepare display temp: F>C change only aplies to display elements. Any logic within the app will be based on Farenheit temp stored in weatherTemp
+
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  const displayTemp =
+    currentTemperatureUnit === "F"
+      ? Math.round(weatherTemp)
+      : Math.round(((weatherTemp - 32) * 5) / 9);
 
   return (
     <main className="main">
       <WeatherCard
         day={isDaytime}
         type={weatherType}
-        weatherTemp={weatherTemp}
+        displayTemp={displayTemp}
+        currentTempUnit={currentTemperatureUnit}
       />
       <section className="card_section" id="card-section">
-        Today is {weatherTemp} °F / You may want to wear:
+        Today is {displayTemp}°{currentTemperatureUnit} / You may want to wear:
         <div className="card_items" id="card-items">
           {filteredCards.map((item) => (
             // console.log(`item_card_${item._id}`),

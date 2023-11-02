@@ -62,7 +62,7 @@ export const parseWeatherData = (data) => {
 
   // Extract current temp
   const main = data.main;
-  const temperature = main && Math.ceil(main.temp); // ceil to round to whole number
+  const temperatureF = main && main.temp; // ceil to round to whole number
   // console.log(temperature);
 
   // Summary of parsed data
@@ -70,7 +70,7 @@ export const parseWeatherData = (data) => {
     cityName: cityName,
     weatherType: weatherType,
     isDaytime: isDaytime,
-    temperature: temperature,
+    temperatureF: temperatureF, // Farenheit
   };
 
   return parsedData;
