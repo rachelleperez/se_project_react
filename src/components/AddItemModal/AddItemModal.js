@@ -17,7 +17,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
   const [itemWeather, setItemWeather] = useState("");
 
   const handleWeatherChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setItemWeather(e.target.value);
   };
 
@@ -27,9 +27,9 @@ const AddItemModal = ({ onClose, onAddItem }) => {
     e.preventDefault();
 
     const data = {
-      itemName: itemName,
-      itemLink: itemLink,
-      itemWeather: itemWeather,
+      name: itemName,
+      link: itemLink,
+      weather: itemWeather,
     };
 
     onAddItem(data);

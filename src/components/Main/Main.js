@@ -45,10 +45,9 @@ function Main({ weatherTemp, onSelectCard, weatherType, isDaytime }) {
       <section className="card_section" id="card-section">
         Today is {displayTemp}°{currentTemperatureUnit} / You may want to wear:
         <div className="card_items" id="card-items">
-          {filteredCards.map((item) => (
-            // console.log(`item_card_${item._id}`),
+          {filteredCards.map((item, index) => (
             <ItemCard
-              key={`item_card_${item._id}`}
+              key={`filtered_item_card_${index}`}
               item={item}
               onSelectCard={onSelectCard}
             />

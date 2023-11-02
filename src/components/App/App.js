@@ -46,9 +46,9 @@ function App() {
   // temp pending API work
   const handleAddItemSubmit = (item) => {
     console.log("NEW ITEM!");
-    console.log(item.itemName);
-    console.log(item.itemLink);
-    console.log(item.itemWeather);
+    console.log(item.name);
+    console.log(item.link);
+    console.log(item.weather);
 
     // api
     //   .addItem(item)

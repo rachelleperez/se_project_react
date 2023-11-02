@@ -24,10 +24,9 @@ const ClothesSection = ({
         className="card_items clothes-section__items"
         id="profile-card-items"
       >
-        {itemData.map((item) => (
-          // console.log(`item_card_${item._id}`),
+        {itemData.map((item, index) => (
           <ItemCard
-            key={`item_card_${item._id}`}
+            key={`user_item_card_${index}`}
             item={item}
             onSelectCard={onSelectCard}
           />
