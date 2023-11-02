@@ -67,6 +67,15 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const handleToggleSwitchChange = () => {
+    console.log(currentTemperatureUnit);
+    currentTemperatureUnit === "F"
+      ? setCurrentTemperatureUnit("C")
+      : setCurrentTemperatureUnit("F");
+
+    console.log(currentTemperatureUnit);
+  };
+
   useEffect(() => {
     // app already rendered, then it calls API
     getForecastWeather()
@@ -98,12 +107,6 @@ function App() {
       }
     };
 
-    const handleToggleSwitchChange = () => {
-      currentTemperatureUnit === "F"
-        ? setCurrentTemperatureUnit("C")
-        : setCurrentTemperatureUnit("F");
-    };
-
     window.addEventListener("keydown", handleEsc);
     window.addEventListener("mousedown", handleClickModalOverlay);
     return () => {
@@ -114,19 +117,19 @@ function App() {
 
   return (
     <div className="app">
-      {/* <CurrentTemperatureUnitContext.Provider
-      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      > */}
-      <BrowserRouter>
-        <Header onCreateModal={handleCreateModal} city={city} />
-        <Main
-          weatherTemp={temp}
-          onSelectCard={handleSelectedCard}
-          weatherType={weatherType}
-          isDaytime={isDaytime}
-        />
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      >
+        <BrowserRouter>
+          <Header onCreateModal={handleCreateModal} city={city} />
+          <Main
+            weatherTemp={temp}
+            onSelectCard={handleSelectedCard}
+            weatherType={weatherType}
+            isDaytime={isDaytime}
+          />
 
-        {/* <Switch>
+          {/* <Switch>
             <Route
               exact
               path="/"
@@ -156,20 +159,20 @@ function App() {
             />
           </Switch> */}
 
-        <Footer />
-      </BrowserRouter>
+          <Footer />
+        </BrowserRouter>
 
-      {activeModal === "create" && (
-        <AddItemModal
-          onClose={handleCloseModal}
-          onAddItem={handleAddItemSubmit}
-        />
-      )}
+        {activeModal === "create" && (
+          <AddItemModal
+            onClose={handleCloseModal}
+            onAddItem={handleAddItemSubmit}
+          />
+        )}
 
-      {activeModal === "preview" && (
-        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
-      )}
-      {/* </CurrentTemperatureUnitContext.Provider> */}
+        {activeModal === "preview" && (
+          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+        )}
+      </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 }

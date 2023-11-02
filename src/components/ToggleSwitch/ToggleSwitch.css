@@ -1,0 +1,48 @@
+.toggle-switch__label {
+  display: flex;
+  position: relative;
+  font-size: 14px;
+}
+.toggle-switch__checkbox {
+  border-radius: 25px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  width: 56px;
+  height: 28px;
+  appearance: none;
+}
+.switch__slider {
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.switch__slider-F {
+  right: 0px;
+}
+.switch__slider-C {
+  left: 0px; /* default behavior*/
+}
+
+.switch__placeholder {
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* when F = currentTempUnit */
+.switch__placeholder-F {
+  left: 0px;
+}
+.switch__placeholder-C {
+  right: 0px;
+}

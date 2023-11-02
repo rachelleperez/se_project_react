@@ -1,35 +1,36 @@
-import { useState, userContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import "./ToggleSwitch.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 // renders ToggleSwitch component, a switch to toggle between temps
 const ToggleSwitch = () => {
-  return <p>F|C</p>;
+  const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
+    CurrentTemperatureUnitContext
+  );
 
-  // const { CurrentTemperatureUnitContext, handleToggleSwitchChange } =
-  //   useContext(CurrentTemperatureUnitContext);
+  return (
+    <label className="toggle-switch__label">
+      <input
+        className="toggle-switch__checkbox"
+        type="checkbox"
+        name="toggle-switch-checkbox"
+        value={currentTemperatureUnit}
+        onChange={handleToggleSwitchChange}
+      />
 
-  // const [isChecked, setIsChecked] = useState(currentTemperatuteUnit === "C");
-  // useEffect(
-  //   () => setIsChecked(currentTemperatuteUnit === "C"),
-  //   [currentTemperatuteUnit]
-  // );
+      <span
+        className={`switch__slider switch__slider-${currentTemperatureUnit}`}
+      >
+        {currentTemperatureUnit}
+      </span>
 
-  // return (
-  //   <div className="toggle-switch">
-  //     <label className="toggle-switch__label">
-  //       <input
-  //         className="toggle-switch_checkbox toggle-switch__checkbox_state_hidden"
-  //         type="checkbox"
-  //         name="toggle-switch-checkbox"
-  //         value={currentTemperatuteUnit}
-  //         onChange={handleToggleSwitchChange}
-  //         checked={isChecked}
-  //       />
-  //       <span className="toggle-switch__checkbox toggle-switch__checkbox_state_visible" />
-  //     </label>
-  //   </div>
-  // );
+      <span
+        className={`switch__placeholder switch__placeholder-${currentTemperatureUnit}`}
+      >
+        {currentTemperatureUnit === "F" ? "C" : "F"}
+      </span>
+    </label>
+  );
 };
 
 export default ToggleSwitch;
