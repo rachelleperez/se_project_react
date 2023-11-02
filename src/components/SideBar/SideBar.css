@@ -1,9 +1,17 @@
 .sidebar {
   background-color: red;
+  width: 345px; /* 229 + 116 */
 }
 
 .sidebar__user {
+  background-color: blueviolet;
   display: flex;
-  width: 229px;
-  margin-right: 116px;
+  height: 56px;
+  gap: 16px;
+  font-size: 20px;
+  width: inherit;
+}
+
+.sidebar__avatar {
+  height: inherit;
 }
