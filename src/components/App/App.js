@@ -22,7 +22,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems); // temp
   const [activeModal, setActiveModal] = useState(""); // sets default state for modals
-  const [selectedCard, setSelectedCard] = useState({}); // empty object as filled one is object from defaultClothingItems
+  const [selectedCard, setSelectedCard] = useState({}); // empty object as filled one is object from clothing items
   const [tempF, setTemp] = useState(0);
   const [city, setCity] = useState("");
   const [isDaytime, setIsDaytime] = useState(true);
@@ -49,6 +49,8 @@ function App() {
     console.log(item.name);
     console.log(item.link);
     console.log(item.weather);
+
+    setClothingItems([item, ...clothingItems]); // TODO: api handling with .then/.catch
 
     // api
     //   .addItem(item)
@@ -141,6 +143,7 @@ function App() {
                 onSelectCard={handleSelectedCard}
                 weatherType={weatherType}
                 isDaytime={isDaytime}
+                clothingItems={clothingItems}
               />
             </Route>
           </Switch>

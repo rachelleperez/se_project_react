@@ -1,12 +1,17 @@
 import WeatherCard from "./../WeatherCard/WeatherCard";
 import ItemCard from "./../ItemCard/ItemCard";
-import { defaultClothingItems } from "../../utils/constants";
 import "./Main.css";
 import { useMemo, useContext } from "react";
 
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherTemp, onSelectCard, weatherType, isDaytime }) {
+function Main({
+  weatherTemp,
+  onSelectCard,
+  weatherType,
+  isDaytime,
+  clothingItems,
+}) {
   const weatherTempLevel = useMemo(() => {
     if (weatherTemp >= 86) {
       return "hot";
@@ -20,7 +25,7 @@ function Main({ weatherTemp, onSelectCard, weatherType, isDaytime }) {
   // console.log(weatherType);
 
   // keep cards matching current weatherTempLevel
-  const filteredCards = defaultClothingItems.filter((item) => {
+  const filteredCards = clothingItems.filter((item) => {
     // console.log(item)
     return item.weather.toLowerCase().trim() === weatherTempLevel;
   });
