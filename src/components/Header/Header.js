@@ -1,4 +1,6 @@
 import "./Header.css";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+
 const logoImagePath = "/images/logo.svg";
 const avatarImagePath = "/images/avatar.svg";
 
@@ -22,6 +24,7 @@ const Header = ({ onCreateModal, city }) => {
         </div>
       </div>
       <div className="header__avatar-logo">
+        <ToggleSwitch />
         <div>
           <button
             type="text"
