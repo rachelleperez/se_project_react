@@ -14,12 +14,13 @@ import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
 
 import api from "../../utils/api";
+import { defaultClothingItems } from "../../utils/constants"; //temp
 
 function App() {
   // const weatherTemp = '50';
 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState([]);
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems); // temp
   const [activeModal, setActiveModal] = useState(""); // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}); // empty object as filled one is object from defaultClothingItems
   const [tempF, setTemp] = useState(0);
@@ -65,6 +66,10 @@ function App() {
         setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleCardClick = (card) => {
+    console.log("card was clicked");
   };
 
   const handleToggleSwitchChange = () => {
@@ -119,11 +124,18 @@ function App() {
       >
         <BrowserRouter>
           <Header onCreateModal={handleCreateModal} city={city} />
-          <Main
+          {/* <Main
             weatherTemp={tempF}
             onSelectCard={handleSelectedCard}
             weatherType={weatherType}
             isDaytime={isDaytime}
+          /> */}
+
+          <Profile
+            itemData={clothingItems} //temp
+            onSelectCard={handleSelectedCard}
+            onCardDelete={handleCardDelete}
+            onAddNewClick={() => setActiveModal("create")}
           />
 
           {/* <Switch>
