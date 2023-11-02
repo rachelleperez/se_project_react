@@ -1,0 +1,9 @@
+.clothes-section {
+  background-color: green;
+  /* margin-top: 0px; */
+}
+
+.clothes-section__items {
+  background-color: blue;
+  margin-top: 16px;
+}

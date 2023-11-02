@@ -1,0 +1,6 @@
+.profile {
+  padding: 0 40px;
+  font-weight: 700;
+  display: flex;
+  margin-top: 32px; /* 47 - existing 15 */
+}

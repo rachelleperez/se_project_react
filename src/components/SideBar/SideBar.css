@@ -1,0 +1,9 @@
+.sidebar {
+  background-color: red;
+}
+
+.sidebar__user {
+  display: flex;
+  width: 229px;
+  margin-right: 116px;
+}
