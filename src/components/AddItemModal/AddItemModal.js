@@ -1,20 +1,35 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useState } from "react";
 
 const AddItemModal = ({ onClose, onAddItem }) => {
+  const [itemName, setItemName] = useState("");
+
+  const handleNameChange = (e) => {
+    setItemName(e.target.value);
+  };
+
+  const [itemLink, setItemLink] = useState("");
+
+  const handleLinkChange = (e) => {
+    setItemLink(e.target.value);
+  };
+
+  const [itemWeather, setItemWeather] = useState("");
+
+  const handleWeatherChange = (e) => {
+    console.log(e.target.value);
+    setItemWeather(e.target.value);
+  };
+
   // console.log('item modal');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // console.log('AddItem Form Submit');
-
-    const formData = new FormData(e.target);
-    const formProps = Object.fromEntries(formData);
-
     const data = {
-      itemName: formProps.itemName,
-      itemLink: formProps.itemLink,
-      itemWeather: formProps.itemWeather,
+      itemName: itemName,
+      itemLink: itemLink,
+      itemWeather: itemWeather,
     };
 
     onAddItem(data);
@@ -40,6 +55,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
           maxLength="30"
           placeholder="Name"
           required
+          onChange={handleNameChange}
         />
       </label>
       <label className="modal__form-label">
@@ -52,6 +68,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
           maxLength="30"
           placeholder="Image URL"
           required
+          onChange={handleLinkChange}
         />
       </label>
       <p className="modal__form-subtitle">Select the weather type:</p>
@@ -64,6 +81,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
               id="hot"
               value="hot"
               name="itemWeather"
+              onChange={handleWeatherChange}
             />
             Hot
           </label>
@@ -76,6 +94,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
               id="warm"
               value="warm"
               name="itemWeather"
+              onChange={handleWeatherChange}
             />
             Warm
           </label>
@@ -88,6 +107,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
               id="cold"
               value="cold"
               name="itemWeather"
+              onChange={handleWeatherChange}
             />
             Cold
           </label>
