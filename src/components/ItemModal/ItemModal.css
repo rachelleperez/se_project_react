@@ -1,31 +1,39 @@
 .modal__content-image {
-  max-width: 498px;
-  max-height: 610px;
+  /* background-color: blue; */
+  width: 498px;
+  height: 610px;
+  max-height: none;
   padding: 0px 0px 0px 0px; /* resets*/
   /* background-color: red; */
 }
 
 .modal__image {
+  padding: 0px 0px 0px 0px; /* resets*/
   width: 100%;
+  max-height: 498px;
   border-radius: 20px 20px 0 0;
+  overflow: auto;
 }
 
 .modal__image-caption {
-  /* background-color: blue; */
+  /* background-color: green; */
   display: flex;
   flex-direction: column;
   padding-left: 32px;
-  padding-top: 20px;
-  padding-bottom: 32px;
+  /* padding-top: 20px; */
+  /* padding-bottom: 32px; */
   gap: 12px;
   font-size: 20px;
   line-height: 24px;
+  height: 112px;
 }
 
 .modal__image-caption-line1 {
   display: flex;
   justify-content: space-between;
   padding-right: 32px;
+  margin-top: 16px;
+  margin-bottom: 5px;
 }
 
 .modal__image-delete-button {
@@ -34,4 +42,11 @@
   /* padding-right: 32px; */
   color: red;
   cursor: pointer;
+}
+
+.modal__image-caption-text {
+  /* font-size: 20px; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: normal;
 }

@@ -43,6 +43,7 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
+    // console.log(item);
     // temp: creates dummy id, max id +1
     const maxId = clothingItems.reduce(
       (max, item) => (item._id > max ? item._id : max),

@@ -28,7 +28,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
 
     const data = {
       name: itemName,
-      link: itemLink,
+      imageUrl: itemLink,
       weather: itemWeather,
     };
 

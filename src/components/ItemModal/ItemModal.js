@@ -20,12 +20,12 @@ const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
         </button>
         <img
           className="modal__image"
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt={selectedCard.name}
         />
         <div className="modal__image-caption">
           <div className="modal__image-caption-line1">
-            <p>{selectedCard.name}</p>
+            <p className="modal__image-caption-text">{selectedCard.name}</p>
             <button
               className="modal__image-delete-button"
               type="text"
@@ -35,7 +35,10 @@ const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
               Delete item{" "}
             </button>
           </div>
-          <p> Weather: {selectedCard.weather}</p>
+          <p className="modal__image-caption-text">
+            {" "}
+            Weather: {selectedCard.weather}
+          </p>
         </div>
       </div>
     </div>
