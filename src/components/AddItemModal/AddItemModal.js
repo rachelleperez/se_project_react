@@ -48,6 +48,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
           className="modal__form-text-input"
           type="text"
           name="itemName"
+          value={itemName}
           minLength="1"
           maxLength="30"
           placeholder="Name"
@@ -61,6 +62,7 @@ const AddItemModal = ({ onClose, onAddItem }) => {
           className="modal__form-text-input"
           type="url"
           name="itemLink"
+          value={itemLink}
           minLength="1"
           maxLength="30"
           placeholder="Image URL"
