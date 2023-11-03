@@ -52,7 +52,7 @@ function Main({
         <div className="card_items" id="card-items">
           {filteredCards.map((item) => (
             <ItemCard
-              key={`filtered_item_card_${item.id}`}
+              key={`filtered_item_card_${item._id}`}
               item={item}
               onSelectCard={onSelectCard}
             />

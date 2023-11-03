@@ -26,7 +26,7 @@ const ClothesSection = ({
       >
         {itemData.map((item) => (
           <ItemCard
-            key={`user_item_card_${item.id}`}
+            key={`user_item_card_${item._id}`}
             item={item}
             onSelectCard={onSelectCard}
           />

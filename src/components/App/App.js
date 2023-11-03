@@ -34,9 +34,7 @@ function App() {
   };
 
   const handleCloseModal = () => {
-    // console.log('close Modal App.js');
-    // console.log(activeModal);
-    setActiveModal(""); //TODO: page keeps refreshing but can't identify reason.
+    setActiveModal("");
   };
 
   const handleSelectedCard = (card) => {
@@ -45,17 +43,12 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
-    // console.log("NEW ITEM!");
-    // console.log(item.name);
-    // console.log(item.link);
-    // console.log(item.weather);
-
     // temp: creates dummy id, max id +1
     const maxId = clothingItems.reduce(
-      (max, item) => (item.id > max ? item.id : max),
+      (max, item) => (item._id > max ? item._id : max),
       0
     );
-    item.id = maxId + 1;
+    item._id = maxId + 1;
 
     setClothingItems([item, ...clothingItems]); // TODO: api handling with .then/.catch
 
@@ -79,15 +72,15 @@ function App() {
     // console.log("request to delete CONFIRMED");
 
     setClothingItems((clothingItems) =>
-      clothingItems.filter((item) => item.id !== selectedCard.id)
+      clothingItems.filter((item) => item._id !== selectedCard._id)
     );
 
     handleCloseModal();
 
     // api
-    //   .removeItem(card.id)
+    //   .removeItem(card._id)
     //   .then(() => {
-    //     setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+    //     setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
     //   })
     //   .catch((err) => console.log(err));
   };
@@ -98,8 +91,8 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
+  // app already rendered, then it calls Weather API
   useEffect(() => {
-    // app already rendered, then it calls API
     getForecastWeather()
       .then((data) => {
         setTemp(parseWeatherData(data).temperatureF);
@@ -111,6 +104,21 @@ function App() {
         console.log(err);
       });
   }, []); // dependencies
+
+  //app already rendered, then it calls User API
+  useEffect(() => {
+    // console.log("ready to retrieve items");
+    api
+      .getItemList()
+      .then((data) => {
+        // console.log(data);
+        setClothingItems(data);
+      })
+      .catch((err) => {
+        console.log("failure");
+        console.log(err);
+      });
+  }, [api]);
 
   // close upon Esc and click overlay
   useEffect(() => {
