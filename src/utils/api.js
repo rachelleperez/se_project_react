@@ -5,19 +5,23 @@ export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
+function request(url, options) {
+  return fetch(url, options).then(handleServerResponse);
+}
+
 const getItemList = () => {
   // console.log("reached getItemList");
 
-  return fetch(`${BASE_URL}/items`, {
+  return request(`${BASE_URL}/items`, {
     // REST, default method = 'GET
     headers: {
       "Content-type": "application/json",
     },
-  }).then((res) => handleServerResponse(res));
+  });
 };
 
 const addItem = ({ name, weather, imageUrl }) => {
-  return fetch(`${BASE_URL}/items`, {
+  return request(`${BASE_URL}/items`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -27,16 +31,16 @@ const addItem = ({ name, weather, imageUrl }) => {
       weather,
       imageUrl,
     }),
-  }).then(handleServerResponse);
+  });
 };
 
 const removeItem = (id) => {
-  return fetch(`${BASE_URL}/items/${id}`, {
+  return request(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
     },
-  }).then(handleServerResponse);
+  });
 };
 
 export const api = {
