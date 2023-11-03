@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:3001";
 
-const handleServerResponse = (res) => {
+export const handleServerResponse = (res) => {
   // console.log("reached handleServerResponse");
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
@@ -39,7 +39,7 @@ const removeItem = (id) => {
   }).then(handleServerResponse);
 };
 
-const api = {
+export const api = {
   getItemList,
   addItem,
   removeItem,
