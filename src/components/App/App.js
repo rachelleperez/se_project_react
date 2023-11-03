@@ -66,18 +66,16 @@ function App() {
   const handleCardDeleteConfirmation = () => {
     // console.log("request to delete CONFIRMED");
 
-    setClothingItems((clothingItems) =>
-      clothingItems.filter((item) => item._id !== selectedCard._id)
-    );
+    api
+      .removeItem(selectedCard._id)
+      .then(() => {
+        setClothingItems((clothingItems) =>
+          clothingItems.filter((item) => item._id !== selectedCard._id)
+        );
 
-    handleCloseModal();
-
-    // api
-    //   .removeItem(card._id)
-    //   .then(() => {
-    //     setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
-    //   })
-    //   .catch((err) => console.log(err));
+        handleCloseModal();
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleToggleSwitchChange = () => {
