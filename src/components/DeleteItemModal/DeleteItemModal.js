@@ -1,7 +1,7 @@
 import "./DeleteItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose, onCardDeleteConfirmation }) => {
-  // console.log('item modal');
+const DeleteItemModal = ({ onClose, onCardDeleteConfirmation }) => {
+  // console.log('delete item modal');
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -47,4 +47,4 @@ const ItemModal = ({ selectedCard, onClose, onCardDeleteConfirmation }) => {
   );
 };
 
-export default ItemModal;
+export default DeleteItemModal;

@@ -186,7 +186,6 @@ function App() {
 
         {activeModal === "delete" && (
           <DeleteItemModal
-            selectedCard={selectedCard}
             onClose={handleCloseModal}
             onCardDeleteConfirmation={handleCardDeleteConfirmation}
           />
