@@ -45,7 +45,6 @@ function Main({
         day={isDaytime}
         type={weatherType}
         displayTemp={displayTemp}
-        currentTempUnit={currentTemperatureUnit}
       />
       <section className="card_section" id="card-section">
         Today is {displayTemp}°{currentTemperatureUnit} / You may want to wear:
