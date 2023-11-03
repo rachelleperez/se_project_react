@@ -68,7 +68,7 @@
 }
 
 .modal__form-submit-button {
-  width: 124px;
+  min-width: 124px;
   height: 36px;
   margin-top: 24px;
   margin-bottom: 36px;

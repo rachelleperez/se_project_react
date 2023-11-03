@@ -27,6 +27,7 @@ function App() {
   const [city, setCity] = useState("");
   const [isDaytime, setIsDaytime] = useState(true);
   const [weatherType, setWeatherType] = useState("sunny");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -44,7 +45,7 @@ function App() {
   const handleAddItemSubmit = (item) => {
     // console.log(item);
 
-    // setClothingItems([item, ...clothingItems]); // TODO: api handling with .then/.catch
+    setIsLoading(true);
 
     api
       .addItem(item)
@@ -52,7 +53,8 @@ function App() {
         setClothingItems([newItem, ...clothingItems]);
         handleCloseModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(setIsLoading(false));
   };
 
   // request to delete item
@@ -168,6 +170,7 @@ function App() {
           <AddItemModal
             onClose={handleCloseModal}
             onAddItem={handleAddItemSubmit}
+            isLoading={isLoading}
           />
         )}
 

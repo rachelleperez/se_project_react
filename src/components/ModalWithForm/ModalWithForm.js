@@ -2,11 +2,14 @@ import "./ModalWithForm.css";
 
 const ModalWithForm = ({
   children,
-  buttonText = "Add Garment",
+
   title,
   onClose,
   name,
   onSubmit,
+  isLoading,
+  submitButtonText,
+  loadingSubmitButtonText,
 }) => {
   // console.log('ModalWithForm');
 
@@ -31,7 +34,7 @@ const ModalWithForm = ({
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
           <button className="modal__form-submit-button" type="submit">
-            {buttonText}
+            {isLoading ? loadingSubmitButtonText : submitButtonText}
           </button>
         </form>
       </div>
