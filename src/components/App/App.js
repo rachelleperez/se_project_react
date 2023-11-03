@@ -54,7 +54,7 @@ function App() {
         handleCloseModal();
       })
       .catch(console.error)
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   // request to delete item
@@ -79,7 +79,7 @@ function App() {
         handleCloseModal();
       })
       .catch(console.error)
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   const handleToggleSwitchChange = () => {
