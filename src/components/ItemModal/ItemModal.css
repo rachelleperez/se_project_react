@@ -23,15 +23,15 @@
 }
 
 .modal__image-caption-line1 {
-  /* background-color: green; */
   display: flex;
   justify-content: space-between;
+  padding-right: 32px;
 }
 
 .modal__image-delete-button {
   background-color: transparent;
   border: none;
-  padding-right: 32px;
+  /* padding-right: 32px; */
   color: red;
   cursor: pointer;
 }

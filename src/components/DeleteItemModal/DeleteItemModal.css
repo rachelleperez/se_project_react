@@ -1,0 +1,23 @@
+.modal__delete-item {
+  width: 670px;
+  height: 280px;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.modal__image-delete-options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 24px;
+}
+
+.modal__image-delete-cancel-button {
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+}

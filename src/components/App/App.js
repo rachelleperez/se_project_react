@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
@@ -62,7 +63,20 @@ function App() {
   };
 
   const handleCardDelete = (card) => {
-    console.log("delete this card");
+    console.log("request to delete this card");
+
+    setActiveModal("delete");
+    // api
+    //   .removeItem(card.id)
+    //   .then(() => {
+    //     setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+    //   })
+    //   .catch((err) => console.log(err));
+  };
+
+  const handleCardDeleteConfirmation = (card) => {
+    console.log("request to delete this card CONFIRMED");
+
     // api
     //   .removeItem(card.id)
     //   .then(() => {
@@ -160,6 +174,14 @@ function App() {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             onCardDelete={handleCardDelete}
+          />
+        )}
+
+        {activeModal === "delete" && (
+          <DeleteItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            onCardDeleteConfirmation={handleCardDeleteConfirmation}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
