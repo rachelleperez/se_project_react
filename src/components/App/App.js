@@ -52,7 +52,7 @@ function App() {
         setClothingItems([newItem, ...clothingItems]);
         handleCloseModal();
       })
-      .catch((err) => console.log(err));
+      .catch(console.error);
   };
 
   // request to delete item
@@ -74,7 +74,7 @@ function App() {
 
         handleCloseModal();
       })
-      .catch((err) => console.log(err));
+      .catch(console.error);
   };
 
   const handleToggleSwitchChange = () => {
@@ -92,9 +92,7 @@ function App() {
         setIsDaytime(parseWeatherData(data).isDaytime);
         setWeatherType(parseWeatherData(data).weatherType);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
   }, []); // dependencies
 
   //app already rendered, then it calls User API
@@ -106,10 +104,7 @@ function App() {
         // console.log(data);
         setClothingItems(data);
       })
-      .catch((err) => {
-        console.log("failure");
-        console.log(err);
-      });
+      .catch(console.error);
   }, [api]);
 
   // close upon Esc and click overlay
