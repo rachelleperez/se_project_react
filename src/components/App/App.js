@@ -15,13 +15,12 @@ import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
 
 import api from "../../utils/api";
-import { defaultClothingItems } from "../../utils/constants"; //temp
 
 function App() {
   // const weatherTemp = '50';
 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems); // temp
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState(""); // sets default state for modals
   const [selectedCard, setSelectedCard] = useState({}); // empty object as filled one is object from clothing items
   const [tempF, setTemp] = useState(0);
