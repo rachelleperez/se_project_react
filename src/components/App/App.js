@@ -44,22 +44,16 @@ function App() {
 
   const handleAddItemSubmit = (item) => {
     // console.log(item);
-    // temp: creates dummy id, max id +1
-    const maxId = clothingItems.reduce(
-      (max, item) => (item._id > max ? item._id : max),
-      0
-    );
-    item._id = maxId + 1;
 
-    setClothingItems([item, ...clothingItems]); // TODO: api handling with .then/.catch
+    // setClothingItems([item, ...clothingItems]); // TODO: api handling with .then/.catch
 
-    // api
-    //   .addItem(item)
-    //   .then((newItem) => {
-    //     setClothingItems([newItem, ...clothingItems]);
-    //     handleCloseModal();
-    //   })
-    //   .catch((err) => console.log(err));
+    api
+      .addItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((err) => console.log(err));
   };
 
   // request to delete item
