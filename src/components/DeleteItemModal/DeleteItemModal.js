@@ -1,6 +1,6 @@
 import "./DeleteItemModal.css";
 
-const DeleteItemModal = ({ onClose, onCardDeleteConfirmation }) => {
+const DeleteItemModal = ({ onClose, onCardDeleteConfirmation, isLoading }) => {
   // console.log('delete item modal');
 
   const handleClose = (e) => {
@@ -29,8 +29,7 @@ const DeleteItemModal = ({ onClose, onCardDeleteConfirmation }) => {
             type="text"
             onClick={onCardDeleteConfirmation}
           >
-            {" "}
-            Yes, delete item{" "}
+            {isLoading ? "Deleting item ..." : "Yes, delete item"}
           </button>
 
           <button

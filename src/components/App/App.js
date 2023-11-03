@@ -67,6 +67,8 @@ function App() {
   const handleCardDeleteConfirmation = () => {
     // console.log("request to delete CONFIRMED");
 
+    setIsLoading(true);
+
     api
       .removeItem(selectedCard._id)
       .then(() => {
@@ -76,7 +78,8 @@ function App() {
 
         handleCloseModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(setIsLoading(false));
   };
 
   const handleToggleSwitchChange = () => {
@@ -100,6 +103,7 @@ function App() {
   //app already rendered, then it calls User API
   useEffect(() => {
     // console.log("ready to retrieve items");
+
     api
       .getItemList()
       .then((data) => {
@@ -186,6 +190,7 @@ function App() {
           <DeleteItemModal
             onClose={handleCloseModal}
             onCardDeleteConfirmation={handleCardDeleteConfirmation}
+            isLoading={isLoading}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
