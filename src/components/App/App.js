@@ -44,12 +44,18 @@ function App() {
     setSelectedCard(card);
   };
 
-  // temp pending API work
   const handleAddItemSubmit = (item) => {
-    console.log("NEW ITEM!");
-    console.log(item.name);
-    console.log(item.link);
-    console.log(item.weather);
+    // console.log("NEW ITEM!");
+    // console.log(item.name);
+    // console.log(item.link);
+    // console.log(item.weather);
+
+    // temp: creates dummy id, max id +1
+    const maxId = clothingItems.reduce(
+      (max, item) => (item.id > max ? item.id : max),
+      0
+    );
+    item.id = maxId + 1;
 
     setClothingItems([item, ...clothingItems]); // TODO: api handling with .then/.catch
 
@@ -62,20 +68,21 @@ function App() {
     //   .catch((err) => console.log(err));
   };
 
-  const handleCardDelete = (card) => {
-    console.log("request to delete this card");
-
+  // request to delete item
+  const handleCardDelete = () => {
+    // console.log("request to delete this card");
     setActiveModal("delete");
-    // api
-    //   .removeItem(card.id)
-    //   .then(() => {
-    //     setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
-  const handleCardDeleteConfirmation = (card) => {
-    console.log("request to delete this card CONFIRMED");
+  // delete item request confirmed.
+  const handleCardDeleteConfirmation = () => {
+    // console.log("request to delete CONFIRMED");
+
+    setClothingItems((clothingItems) =>
+      clothingItems.filter((item) => item.id !== selectedCard.id)
+    );
+
+    handleCloseModal();
 
     // api
     //   .removeItem(card.id)
