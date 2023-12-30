@@ -37,7 +37,7 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
 
   return (
     <ModalWithForm
-      title="WIP: User Login"
+      title="Log In"
       onClose={onClose}
       onSubmit={handleSubmit}
       name="addGarment"
@@ -46,7 +46,7 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
       loadingSubmitButtonText="Adding Garment ..."
     >
       <label className="modal__form-label">
-        Name
+        Email
         <input
           className="modal__form-text-input"
           type="text"
@@ -60,7 +60,7 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
         />
       </label>
       <label className="modal__form-label">
-        Image
+        Password
         <input
           className="modal__form-text-input"
           type="url"
@@ -73,48 +73,6 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
           onChange={handleLinkChange}
         />
       </label>
-      <p className="modal__form-subtitle">Select the weather type:</p>
-      <div>
-        <div className="modal__form-radio-container">
-          <label className="modal__form-radio-label">
-            <input
-              className="modal__form-radio-input"
-              type="radio"
-              id="hot"
-              value="hot"
-              name="itemWeather"
-              onChange={handleWeatherChange}
-            />
-            Hot
-          </label>
-        </div>
-        <div className="modal__form-radio-container">
-          <label className="modal__form-radio-label">
-            <input
-              className="modal__form-radio-input"
-              type="radio"
-              id="warm"
-              value="warm"
-              name="itemWeather"
-              onChange={handleWeatherChange}
-            />
-            Warm
-          </label>
-        </div>
-        <div className="modal__form-radio-container">
-          <label className="modal__form-radio-label">
-            <input
-              className="modal__form-radio-input"
-              type="radio"
-              id="cold"
-              value="cold"
-              name="itemWeather"
-              onChange={handleWeatherChange}
-            />
-            Cold
-          </label>
-        </div>
-      </div>
     </ModalWithForm>
   );
 };
