@@ -10,16 +10,12 @@ function request(url, options) {
 }
 
 const getItemList = () => {
-  console.log("reached getItemList");
-
   return request(`${BASE_URL}/items`, {
     // REST, default method = 'GET
     headers: {
       "Content-type": "application/json",
     },
   });
-
-  // console.log("end: reached getItemList");
 };
 
 const addItem = ({ name, weather, imageUrl }) => {
