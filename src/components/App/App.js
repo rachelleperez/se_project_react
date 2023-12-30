@@ -14,6 +14,7 @@ import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
+import CurrentUserContext from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
 
@@ -29,6 +30,9 @@ function App() {
   const [isDaytime, setIsDaytime] = useState(true);
   const [weatherType, setWeatherType] = useState("sunny");
   const [isLoading, setIsLoading] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -159,72 +163,77 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <BrowserRouter>
-          <Header onCreateModal={handleCreateModal} city={city} />
+        <CurrentUserContext.Provider
+          value={currentUser}
+          isLoggedIn={isLoggedIn}
+        >
+          <BrowserRouter>
+            <Header onCreateModal={handleCreateModal} city={city} />
 
-          <Switch>
-            <Route exact path="/profile">
-              <Profile
-                itemData={clothingItems}
-                onSelectCard={handleSelectedCard}
-                onCardDelete={handleCardDelete}
-                onAddNewClick={() => setActiveModal("create")}
-              />
-            </Route>
+            <Switch>
+              <Route exact path="/profile">
+                <Profile
+                  itemData={clothingItems}
+                  onSelectCard={handleSelectedCard}
+                  onCardDelete={handleCardDelete}
+                  onAddNewClick={() => setActiveModal("create")}
+                />
+              </Route>
 
-            <Route path="/">
-              <Main
-                weatherTemp={tempF}
-                onSelectCard={handleSelectedCard}
-                weatherType={weatherType}
-                isDaytime={isDaytime}
-                clothingItems={clothingItems}
-              />
-            </Route>
-          </Switch>
+              <Route path="/">
+                <Main
+                  weatherTemp={tempF}
+                  onSelectCard={handleSelectedCard}
+                  weatherType={weatherType}
+                  isDaytime={isDaytime}
+                  clothingItems={clothingItems}
+                />
+              </Route>
+            </Switch>
 
-          <Footer />
-        </BrowserRouter>
+            <Footer />
+          </BrowserRouter>
 
-        {activeModal === "create" && (
-          <AddItemModal
-            onClose={handleCloseModal}
-            onAddItem={handleAddItemSubmit}
-            isLoading={isLoading}
-          />
-        )}
+          {activeModal === "create" && (
+            <AddItemModal
+              onClose={handleCloseModal}
+              onAddItem={handleAddItemSubmit}
+              isLoading={isLoading}
+            />
+          )}
 
-        {activeModal === "preview" && (
-          <ItemModal
-            selectedCard={selectedCard}
-            onClose={handleCloseModal}
-            onCardDelete={handleCardDelete}
-          />
-        )}
+          {activeModal === "preview" && (
+            <ItemModal
+              selectedCard={selectedCard}
+              onClose={handleCloseModal}
+              onCardDelete={handleCardDelete}
+            />
+          )}
 
-        {activeModal === "delete" && (
-          <DeleteItemModal
-            onClose={handleCloseModal}
-            onCardDeleteConfirmation={handleCardDeleteConfirmation}
-            isLoading={isLoading}
-          />
-        )}
+          {activeModal === "delete" && (
+            <DeleteItemModal
+              onClose={handleCloseModal}
+              onCardDeleteConfirmation={handleCardDeleteConfirmation}
+              isLoading={isLoading}
+            />
+          )}
 
-        {activeModal === "register" && (
-          <RegisterModal
-            onClose={handleCloseModal}
-            onSubmit={handleUserRegistrationSubmit}
-            isLoading={isLoading}
-          />
-        )}
+          {activeModal === "register" && (
+            <RegisterModal
+              onClose={handleCloseModal}
+              onSubmit={handleUserRegistrationSubmit}
+              isLoading={isLoading}
+            />
+          )}
 
-        {activeModal === "login" && (
-          <LoginModal
-            onClose={handleCloseModal}
-            onSubmit={handleUserLoginSubmit}
-            isLoading={isLoading}
-          />
-        )}
+          {activeModal === "login" && (
+            <LoginModal
+              onClose={handleCloseModal}
+              onSubmit={handleUserLoginSubmit}
+              isLoading={isLoading}
+            />
+          )}
+        </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
