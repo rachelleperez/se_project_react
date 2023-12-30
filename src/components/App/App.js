@@ -106,7 +106,7 @@ function App() {
     api
       .getItemList()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setClothingItems(data);
       })
       .catch(console.error);
