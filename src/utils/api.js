@@ -10,7 +10,7 @@ function request(url, options) {
 }
 
 const getItemList = () => {
-  // console.log("reached getItemList");
+  console.log("reached getItemList");
 
   return request(`${BASE_URL}/items`, {
     // REST, default method = 'GET
@@ -18,6 +18,8 @@ const getItemList = () => {
       "Content-type": "application/json",
     },
   });
+
+  // console.log("end: reached getItemList");
 };
 
 const addItem = ({ name, weather, imageUrl }) => {

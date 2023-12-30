@@ -5,7 +5,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import Profile from "../Profile/Profile";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
@@ -103,15 +103,14 @@ function App() {
   //app already rendered, then it calls User API
   useEffect(() => {
     // console.log("ready to retrieve items");
-
     api
       .getItemList()
       .then((data) => {
-        // console.log(data);
+        console.log("API Data:", data);
         setClothingItems(data);
       })
       .catch(console.error);
-  }, [api]);
+  }, []);
 
   // close upon Esc and click overlay
   useEffect(() => {

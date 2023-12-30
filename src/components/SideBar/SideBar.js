@@ -6,11 +6,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__user">
-        <img
-          className="sidebar__avatar"
-          src={avatarImagePath}
-          alt="user image"
-        />
+        <img className="sidebar__avatar" src={avatarImagePath} alt="user" />
         <p className="sidebar__username">Terrence Tegegne</p>
       </div>
     </div>
