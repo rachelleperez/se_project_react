@@ -2,34 +2,23 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
 const LoginModal = ({ onClose, onSubmit, isLoading }) => {
-  const [itemName, setItemName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleNameChange = (e) => {
-    setItemName(e.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
-  const [itemLink, setItemLink] = useState("");
-
-  const handleLinkChange = (e) => {
-    setItemLink(e.target.value);
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
-
-  const [itemWeather, setItemWeather] = useState("");
-
-  const handleWeatherChange = (e) => {
-    // console.log(e.target.value);
-    setItemWeather(e.target.value);
-  };
-
-  // console.log('item modal');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = {
-      name: itemName,
-      imageUrl: itemLink,
-      weather: itemWeather,
+      email: email,
+      password: password,
     };
 
     onSubmit(data);
@@ -40,37 +29,37 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
       title="Log In"
       onClose={onClose}
       onSubmit={handleSubmit}
-      name="addGarment"
+      name="login"
       isLoading={isLoading}
-      submitButtonText="Add Garment"
-      loadingSubmitButtonText="Adding Garment ..."
+      submitButtonText="Log In"
+      loadingSubmitButtonText="Logging in ..."
     >
       <label className="modal__form-label">
         Email
         <input
           className="modal__form-text-input"
-          type="text"
-          name="itemName"
-          value={itemName}
+          type="email"
+          name="email"
+          value={email}
           minLength="1"
           maxLength="30"
-          placeholder="Name"
+          placeholder="Email"
           required
-          onChange={handleNameChange}
+          onChange={handleEmailChange}
         />
       </label>
       <label className="modal__form-label">
         Password
         <input
           className="modal__form-text-input"
-          type="url"
-          name="itemLink"
-          value={itemLink}
+          type="password"
+          name="password"
+          value={password}
           minLength="1"
           maxLength="30"
-          placeholder="Image URL"
+          placeholder="Password"
           required
-          onChange={handleLinkChange}
+          onChange={handlePasswordChange}
         />
       </label>
     </ModalWithForm>

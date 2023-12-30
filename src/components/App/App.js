@@ -60,8 +60,9 @@ function App() {
     console.log(data);
   };
 
-  const handleLogin = () => {
+  const handleLogin = (data) => {
     console.log("User Login Submitted");
+    console.log(data);
   };
 
   const handleAddItemSubmit = (item) => {
