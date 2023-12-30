@@ -49,7 +49,7 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
       loadingSubmitButtonText="Signing Up ..."
     >
       <label className="modal__form-label">
-        Email
+        Email*
         <input
           className="modal__form-text-input"
           type="email"
@@ -57,13 +57,13 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
           value={email}
           minLength="1"
           maxLength="30"
-          placeholder="Email"
+          placeholder="Email*"
           required
           onChange={handleEmailChange}
         />
       </label>
       <label className="modal__form-label">
-        Password
+        Password*
         <input
           className="modal__form-text-input"
           type="password"

@@ -65,8 +65,8 @@ function App() {
     auth
       .signup(user)
       .then((data) => {
-        console.log("New User Added"); // returns data: {avatar, email, name}}
-        console.log(data);
+        console.log("New User Added");
+        console.log(data); // data: {avatar, email, name}}
         handleCloseModal();
       })
       .catch(console.error)
@@ -83,7 +83,7 @@ function App() {
       .signin(user)
       .then((data) => {
         console.log("User Verified");
-        console.log(data); // returns data: {token}}
+        console.log(data); // data: {token}}
         handleCloseModal();
       })
       .catch(console.error)
