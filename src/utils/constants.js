@@ -1,3 +1,21 @@
+export const BASE_URL = "http://localhost:3001";
+
+export const weatherOptions = [
+  { url: "/images/day/sunny.svg", day: true, type: "sunny" },
+  { url: "/images/day/cloudy.svg", day: true, type: "cloudy" },
+  { url: "/images/day/rain.svg", day: true, type: "rain" },
+  { url: "/images/day/storm.svg", day: true, type: "storm" },
+  { url: "/images/day/snow.svg", day: true, type: "snow" },
+  { url: "/images/day/fog.svg", day: true, type: "fog" },
+
+  { url: "/images/night/sunny.svg", day: false, type: "sunny" },
+  { url: "/images/night/cloudy.svg", day: false, type: "cloudy" },
+  { url: "/images/night/rain.svg", day: false, type: "rain" },
+  { url: "/images/night/storm.svg", day: false, type: "storm" },
+  { url: "/images/night/snow.svg", day: false, type: "snow" },
+  { url: "/images/night/fog.svg", day: false, type: "fog" },
+];
+
 // export const defaultClothingItems = [
 //   {
 //     _id: 0,
@@ -36,19 +54,3 @@
 //     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
 //   },
 // ];
-
-export const weatherOptions = [
-  { url: "/images/day/sunny.svg", day: true, type: "sunny" },
-  { url: "/images/day/cloudy.svg", day: true, type: "cloudy" },
-  { url: "/images/day/rain.svg", day: true, type: "rain" },
-  { url: "/images/day/storm.svg", day: true, type: "storm" },
-  { url: "/images/day/snow.svg", day: true, type: "snow" },
-  { url: "/images/day/fog.svg", day: true, type: "fog" },
-
-  { url: "/images/night/sunny.svg", day: false, type: "sunny" },
-  { url: "/images/night/cloudy.svg", day: false, type: "cloudy" },
-  { url: "/images/night/rain.svg", day: false, type: "rain" },
-  { url: "/images/night/storm.svg", day: false, type: "storm" },
-  { url: "/images/night/snow.svg", day: false, type: "snow" },
-  { url: "/images/night/fog.svg", day: false, type: "fog" },
-];
