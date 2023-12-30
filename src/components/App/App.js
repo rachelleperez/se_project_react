@@ -38,11 +38,11 @@ function App() {
     setActiveModal("create");
   };
 
-  const handleUserRegistrationClick = () => {
+  const handleSignupModal = () => {
     setActiveModal("register");
   };
 
-  const handleUserLoginClick = () => {
+  const handleLoginModal = () => {
     setActiveModal("login");
   };
 
@@ -55,11 +55,11 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleUserRegistrationSubmit = () => {
+  const handleSignup = () => {
     console.log("User Registration Submitted");
   };
 
-  const handleUserLoginSubmit = () => {
+  const handleLogin = () => {
     console.log("User Login Submitted");
   };
 
@@ -163,12 +163,14 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <CurrentUserContext.Provider
-          value={currentUser}
-          isLoggedIn={isLoggedIn}
-        >
+        <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
           <BrowserRouter>
-            <Header onCreateModal={handleCreateModal} city={city} />
+            <Header
+              onCreateModal={handleCreateModal}
+              onLoginModal={handleLoginModal}
+              onSignupModal={handleSignupModal}
+              city={city}
+            />
 
             <Switch>
               <Route exact path="/profile">
@@ -221,7 +223,7 @@ function App() {
           {activeModal === "register" && (
             <RegisterModal
               onClose={handleCloseModal}
-              onSubmit={handleUserRegistrationSubmit}
+              onSubmit={handleSignup}
               isLoading={isLoading}
             />
           )}
@@ -229,7 +231,7 @@ function App() {
           {activeModal === "login" && (
             <LoginModal
               onClose={handleCloseModal}
-              onSubmit={handleUserLoginSubmit}
+              onSubmit={handleLogin}
               isLoading={isLoading}
             />
           )}
