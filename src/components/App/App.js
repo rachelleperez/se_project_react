@@ -11,7 +11,8 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
-
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
 
 import api from "../../utils/api";
@@ -33,6 +34,14 @@ function App() {
     setActiveModal("create");
   };
 
+  const handleUserRegistrationClick = () => {
+    setActiveModal("register");
+  };
+
+  const handleUserLoginClick = () => {
+    setActiveModal("login");
+  };
+
   const handleCloseModal = () => {
     setActiveModal("");
   };
@@ -40,6 +49,14 @@ function App() {
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+  };
+
+  const handleUserRegistrationSubmit = () => {
+    console.log("User Registration Submitted");
+  };
+
+  const handleUserLoginSubmit = () => {
+    console.log("User Login Submitted");
   };
 
   const handleAddItemSubmit = (item) => {
@@ -189,6 +206,22 @@ function App() {
           <DeleteItemModal
             onClose={handleCloseModal}
             onCardDeleteConfirmation={handleCardDeleteConfirmation}
+            isLoading={isLoading}
+          />
+        )}
+
+        {activeModal === "register" && (
+          <RegisterModal
+            onClose={handleCloseModal}
+            onSubmit={handleUserRegistrationSubmit}
+            isLoading={isLoading}
+          />
+        )}
+
+        {activeModal === "login" && (
+          <LoginModal
+            onClose={handleCloseModal}
+            onSubmit={handleUserLoginSubmit}
             isLoading={isLoading}
           />
         )}
