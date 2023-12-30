@@ -14,7 +14,7 @@ import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
-import CurrentUserContext from "./../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
 
