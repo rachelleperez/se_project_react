@@ -1,7 +1,7 @@
 import { BASE_URL } from "./constants";
 import { request } from "./api";
 
-const signup = ({ email, password, name, avatarUrl }) => {
+const signup = ({ email, password, name, avatar }) => {
   return request(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
@@ -11,7 +11,7 @@ const signup = ({ email, password, name, avatarUrl }) => {
       email,
       password,
       name,
-      avatarUrl,
+      avatar,
     }),
   });
 };

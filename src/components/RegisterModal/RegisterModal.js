@@ -7,7 +7,7 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [avatarUrl, setAvatarUrl] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -21,8 +21,8 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
     setName(e.target.value);
   };
 
-  const handleAvatarUrlChange = (e) => {
-    setAvatarUrl(e.target.value);
+  const handleAvatarChange = (e) => {
+    setAvatar(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -32,7 +32,7 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
       email: email,
       password: password,
       name: name,
-      avatarUrl: avatarUrl,
+      avatar: avatar,
     };
 
     onSubmit(data);
@@ -95,13 +95,13 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
         <input
           className="modal__form-text-input"
           type="url"
-          name="avatarUrl"
-          value={avatarUrl}
+          name="avatar"
+          value={avatar}
           minLength="1"
           maxLength="30"
           placeholder="Avatar URL"
           required
-          onChange={handleAvatarUrlChange}
+          onChange={handleAvatarChange}
         />
       </label>
     </ModalWithForm>
