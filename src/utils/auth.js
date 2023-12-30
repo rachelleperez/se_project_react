@@ -2,7 +2,7 @@ import { BASE_URL } from "./constants";
 import { request } from "./api";
 
 const signup = ({ email, password, name, avatarUrl }) => {
-  return request(`${BASE_URL}/users`, {
+  return request(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -17,7 +17,7 @@ const signup = ({ email, password, name, avatarUrl }) => {
 };
 
 const signin = ({ email, password }) => {
-  return request(`${BASE_URL}/users`, {
+  return request(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",

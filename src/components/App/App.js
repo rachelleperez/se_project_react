@@ -17,6 +17,7 @@ import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUn
 import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
+import auth from "../../utils/auth";
 
 function App() {
   // const weatherTemp = '50';
@@ -55,14 +56,36 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleSignup = (data) => {
+  const handleSignup = (user) => {
     console.log("User Registration Submitted");
-    console.log(data);
+    console.log(user);
+
+    setIsLoading(true);
+
+    auth
+      .signup(user)
+      .then((newUser) => {
+        console.log("New User Added");
+        handleCloseModal();
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
   };
 
-  const handleLogin = (data) => {
-    console.log("User Login Submitted");
-    console.log(data);
+  const handleLogin = (user) => {
+    console.log("User Registration Submitted");
+    console.log(user);
+
+    setIsLoading(true);
+
+    auth
+      .signin(user)
+      .then((newUser) => {
+        console.log("User Verified");
+        handleCloseModal();
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
   };
 
   const handleAddItemSubmit = (item) => {
