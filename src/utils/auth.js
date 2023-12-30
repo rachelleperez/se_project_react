@@ -28,9 +28,22 @@ const signin = ({ email, password }) => {
     }),
   });
 };
+
+const getUserInfo = () => {
+  console.log("api, getUserInfo");
+  return request(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  });
+};
+
 export const auth = {
   signup,
   signin,
+  getUserInfo,
 };
 
 export default auth;

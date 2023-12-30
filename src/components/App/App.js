@@ -18,8 +18,10 @@ import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
 import auth from "../../utils/auth";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
+  console.log("App now running");
   // const weatherTemp = '50';
 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -34,6 +36,8 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+
+  const history = useHistory();
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -57,36 +61,39 @@ function App() {
   };
 
   const handleSignup = (user) => {
-    console.log("User Registration Submitted");
-    console.log(user);
-
     setIsLoading(true);
 
     auth
       .signup(user)
-      .then((data) => {
-        console.log("New User Added");
-        console.log(data); // data: {avatar, email, name}}
-        handleCloseModal();
-      })
+      .then(handleLogin(user)) // if user created, log in
       .catch(console.error)
       .finally(() => setIsLoading(false));
   };
 
   const handleLogin = (user) => {
-    console.log("User Registration Submitted");
-    console.log(user);
-
     setIsLoading(true);
 
     auth
       .signin(user)
       .then((data) => {
-        console.log("User Verified");
-        console.log(data); // data: {token}}
-        handleCloseModal();
+        setIsLoggedIn(true); // logged in
+        localStorage.setItem("jwt", data.token); // save token, user identifier
+        // retrieve user info
+        auth
+          .getUserInfo()
+          .then((data) => {
+            console.log(data);
+            // setCurrentUser({ name: data.name, avatar: data.avatar });
+            // console.log(currentUser);
+            handleCloseModal();
+          })
+          .catch((error) => {
+            console.error("Error retrieving user info:", error);
+          });
       })
-      .catch(console.error)
+      .catch((error) => {
+        console.error("Error in login:", error);
+      })
       .finally(() => setIsLoading(false));
   };
 
@@ -136,27 +143,23 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
-  // app already rendered, then it calls Weather API
+  // app already rendered, then it calls Weather and User APIs
   useEffect(() => {
-    getForecastWeather()
-      .then((data) => {
-        setTemp(parseWeatherData(data).temperatureF);
-        setCity(parseWeatherData(data).cityName);
-        setIsDaytime(parseWeatherData(data).isDaytime);
-        setWeatherType(parseWeatherData(data).weatherType);
-      })
-      .catch(console.error);
-  }, []); // dependencies
+    // make api calls
+    Promise.all([getForecastWeather(), api.getItemList()])
+      .then(
+        ([weatherData, userData]) => {
+          // weather data
+          setTemp(parseWeatherData(weatherData).temperatureF);
+          setCity(parseWeatherData(weatherData).cityName);
+          setIsDaytime(parseWeatherData(weatherData).isDaytime);
+          setWeatherType(parseWeatherData(weatherData).weatherType);
 
-  //app already rendered, then it calls User API
-  useEffect(() => {
-    // console.log("ready to retrieve items");
-    api
-      .getItemList()
-      .then((data) => {
-        // console.log(data);
-        setClothingItems(data);
-      })
+          // items
+          setClothingItems(userData);
+        }
+        // }
+      )
       .catch(console.error);
   }, []);
 
