@@ -2,34 +2,37 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
 const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
-  const [itemName, setItemName] = useState("");
+  // console.log('item modal');
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
   const handleNameChange = (e) => {
-    setItemName(e.target.value);
+    setName(e.target.value);
   };
 
-  const [itemLink, setItemLink] = useState("");
-
-  const handleLinkChange = (e) => {
-    setItemLink(e.target.value);
+  const handleAvatarUrlChange = (e) => {
+    setAvatarUrl(e.target.value);
   };
-
-  const [itemWeather, setItemWeather] = useState("");
-
-  const handleWeatherChange = (e) => {
-    // console.log(e.target.value);
-    setItemWeather(e.target.value);
-  };
-
-  // console.log('item modal');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = {
-      name: itemName,
-      imageUrl: itemLink,
-      weather: itemWeather,
+      email: email,
+      password: password,
+      name: name,
+      avatarUrl: avatarUrl,
     };
 
     onSubmit(data);
@@ -40,18 +43,46 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
       title="Sign Up"
       onClose={onClose}
       onSubmit={handleSubmit}
-      name="addGarment"
+      name="register"
       isLoading={isLoading}
-      submitButtonText="Add Garment"
-      loadingSubmitButtonText="Adding Garment ..."
+      submitButtonText="Next"
+      loadingSubmitButtonText="Signing Up ..."
     >
       <label className="modal__form-label">
         Email
         <input
           className="modal__form-text-input"
+          type="email"
+          name="email"
+          value={email}
+          minLength="1"
+          maxLength="30"
+          placeholder="Email"
+          required
+          onChange={handleEmailChange}
+        />
+      </label>
+      <label className="modal__form-label">
+        Password
+        <input
+          className="modal__form-text-input"
+          type="password"
+          name="password"
+          value={password}
+          minLength="1"
+          maxLength="30"
+          placeholder="Password"
+          required
+          onChange={handlePasswordChange}
+        />
+      </label>
+      <label className="modal__form-label">
+        Name
+        <input
+          className="modal__form-text-input"
           type="text"
-          name="itemName"
-          value={itemName}
+          name="name"
+          value={name}
           minLength="1"
           maxLength="30"
           placeholder="Name"
@@ -60,45 +91,17 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
         />
       </label>
       <label className="modal__form-label">
-        Password
-        <input
-          className="modal__form-text-input"
-          type="url"
-          name="itemLink"
-          value={itemLink}
-          minLength="1"
-          maxLength="30"
-          placeholder="Image URL"
-          required
-          onChange={handleLinkChange}
-        />
-      </label>
-      <label className="modal__form-label">
-        Name
-        <input
-          className="modal__form-text-input"
-          type="url"
-          name="itemLink"
-          value={itemLink}
-          minLength="1"
-          maxLength="30"
-          placeholder="Image URL"
-          required
-          onChange={handleLinkChange}
-        />
-      </label>
-      <label className="modal__form-label">
         Avatar URL
         <input
           className="modal__form-text-input"
           type="url"
-          name="itemLink"
-          value={itemLink}
+          name="avatarUrl"
+          value={avatarUrl}
           minLength="1"
           maxLength="30"
-          placeholder="Image URL"
+          placeholder="Avatar URL"
           required
-          onChange={handleLinkChange}
+          onChange={handleAvatarUrlChange}
         />
       </label>
     </ModalWithForm>

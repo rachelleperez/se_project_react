@@ -55,8 +55,9 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleSignup = () => {
+  const handleSignup = (data) => {
     console.log("User Registration Submitted");
+    console.log(data);
   };
 
   const handleLogin = () => {

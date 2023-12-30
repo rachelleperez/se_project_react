@@ -16,9 +16,7 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
   });
 
   const { isLoggedIn } = useContext(CurrentUserContext);
-  console.log(isLoggedIn);
-
-  const rightMenuSelector = () => {};
+  console.log("Header, isLoggedIn:", isLoggedIn);
 
   return (
     <header className="header">
