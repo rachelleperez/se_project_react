@@ -51,6 +51,8 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
       isLoading={isLoading}
       submitButtonText="Next"
       loadingSubmitButtonText="Signing Up ..."
+      modalReroute="login"
+      modalRerouteText="Log In"
     >
       <label className="modal__form-label">
         Email*

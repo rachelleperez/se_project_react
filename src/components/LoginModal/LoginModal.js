@@ -33,6 +33,8 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
       isLoading={isLoading}
       submitButtonText="Log In"
       loadingSubmitButtonText="Logging in ..."
+      modalReroute="register"
+      modalRerouteText="Register"
     >
       <label className="modal__form-label">
         Email

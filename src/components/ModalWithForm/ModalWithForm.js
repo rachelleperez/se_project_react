@@ -10,6 +10,8 @@ const ModalWithForm = ({
   isLoading,
   submitButtonText,
   loadingSubmitButtonText,
+  modalReroute,
+  modalRerouteText,
 }) => {
   // console.log('ModalWithForm');
 
@@ -17,6 +19,11 @@ const ModalWithForm = ({
     e.preventDefault();
     onClose();
   };
+
+  console.log(modalReroute);
+
+  const handleRerouteHTML =
+    modalReroute === null ? null : "or " + modalRerouteText;
 
   return (
     <div className={`modal modal_type_${name}`}>
@@ -36,6 +43,7 @@ const ModalWithForm = ({
           <button className="modal__form-submit-button" type="submit">
             {isLoading ? loadingSubmitButtonText : submitButtonText}
           </button>
+          {handleRerouteHTML}
         </form>
       </div>
     </div>
