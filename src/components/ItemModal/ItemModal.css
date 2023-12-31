@@ -45,10 +45,6 @@
 }
 
 .modal__image-delete-button-hidden {
-  /* background-color: transparent;
-  border: none;
-  color: purple;
-  cursor: pointer; */
   display: none;
 }
 
