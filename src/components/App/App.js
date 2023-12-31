@@ -20,7 +20,6 @@ import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
 import auth from "../../utils/auth";
-import { useHistory } from "react-router-dom";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -35,8 +34,6 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-
-  const history = useHistory();
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -93,7 +90,6 @@ function App() {
             };
             setCurrentUser(user);
             handleCloseModal();
-            // history.push("/profile");
           })
           .catch((error) => {
             console.error("Error retrieving user info:", error);
