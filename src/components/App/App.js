@@ -152,21 +152,24 @@ function App() {
   const handleEditProfile = (data) => {
     setIsLoading(true);
 
-    auth
-      .updateUserInfo(data)
-      .then((data) => {
-        const user = {
-          name: data.name,
-          avatar: data.avatar,
-          _id: data._id,
-        };
-        setCurrentUser(user);
-        handleCloseModal();
-      })
-      .catch((error) => {
-        console.error("Error in Update Profile", error);
-      })
-      .finally(() => setIsLoading(false));
+    // data = empty array if form submitted with the same values for name and/or avatar
+    if (data !== {}) {
+      auth
+        .updateUserInfo(data)
+        .then((data) => {
+          const user = {
+            name: data.name,
+            avatar: data.avatar,
+            _id: data._id,
+          };
+          setCurrentUser(user);
+          handleCloseModal();
+        })
+        .catch((error) => {
+          console.error("Error in Update Profile", error);
+        })
+        .finally(() => setIsLoading(false));
+    }
   };
 
   const handleLikeClick = ({ _id, isLiked }) => {

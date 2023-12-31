@@ -1,9 +1,13 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const LoginModal = ({ onClose, onSubmit, isLoading }) => {
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+const EditProfileModal = ({ onClose, onSubmit, isLoading }) => {
+  // Extract data for existing user to pre-fill form
+  const { currentUser } = useContext(CurrentUserContext);
+  const [name, setName] = useState(currentUser.name);
+  const [avatar, setAvatar] = useState(currentUser.avatar);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -16,12 +20,11 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {
-      name: name,
-    };
+    const data = {};
 
-    // avatar is optional
-    if (avatar !== "") data.avatar = avatar;
+    // track values changed only
+    if (name !== currentUser.name) data.name = name;
+    if (avatar !== currentUser.avatar) data.avatar = avatar;
 
     onSubmit(data);
   };
@@ -67,4 +70,4 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
   );
 };
 
-export default LoginModal;
+export default EditProfileModal;
