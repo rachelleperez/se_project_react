@@ -170,27 +170,30 @@ function App() {
   };
 
   const handleLikeClick = ({ _id, isLiked }) => {
-    !isLiked
-      ? // if not liked, like this card
-        api
-          // the first argument is the card's id
-          .addCardLike({ _id })
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((c) => (c._id === _id ? updatedCard : c))
-            );
-          })
-          .catch((err) => console.log(err))
-      : // if not, unlike this card
-        api
-          // the first argument is the card's id
-          .removeCardLike({ _id })
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((c) => (c._id === _id ? updatedCard : c))
-            );
-          })
-          .catch((err) => console.log(err));
+    // click functionality only when user logged in
+    if (isLoggedIn) {
+      !isLiked
+        ? // if not liked, like this card
+          api
+            // the first argument is the card's id
+            .addCardLike({ _id })
+            .then((updatedCard) => {
+              setClothingItems((cards) =>
+                cards.map((c) => (c._id === _id ? updatedCard : c))
+              );
+            })
+            .catch((err) => console.log(err))
+        : // if not, unlike this card
+          api
+            // the first argument is the card's id
+            .removeCardLike({ _id })
+            .then((updatedCard) => {
+              setClothingItems((cards) =>
+                cards.map((c) => (c._id === _id ? updatedCard : c))
+              );
+            })
+            .catch((err) => console.log(err));
+    }
   };
 
   const handleToggleSwitchChange = () => {
