@@ -168,29 +168,33 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  const handleLikeClick = ({ id, isLiked }) => {
+  const handleLikeClick = (item, isLiked) => {
     console.log("Like Button Clicked");
+    const id = item._id;
+    console.log("Current User: ", currentUser._id);
+
     // isLiked
     //   ? // if so, send a request to add the user's id to the card's likes array
-    //     api
-    //       // the first argument is the card's id
-    //       .addCardLike(id)
-    //       .then((updatedCard) => {
-    //         setClothingItems((cards) =>
-    //           cards.map((c) => (c._id === id ? updatedCard : c))
-    //         );
-    //       })
-    //       .catch((err) => console.log(err))
-    //   : // if not, send a request to remove the user's id from the card's likes array
-    //     api
-    //       // the first argument is the card's id
-    //       .removeCardLike(id)
-    //       .then((updatedCard) => {
-    //         setClothingItems((cards) =>
-    //           cards.map((c) => (c._id === id ? updatedCard : c))
-    //         );
-    //       })
-    //       .catch((err) => console.log(err));
+    api
+      // the first argument is the card's id
+      .addCardLike(id)
+      .then((updatedCard) => {
+        console.log("Card Liked");
+        setClothingItems((cards) =>
+          cards.map((c) => (c._id === id ? updatedCard : c))
+        );
+      })
+      .catch((err) => console.log(err));
+    // : // if not, send a request to remove the user's id from the card's likes array
+    //   api
+    //     // the first argument is the card's id
+    //     .removeCardLike(id)
+    //     .then((updatedCard) => {
+    //       setClothingItems((cards) =>
+    //         cards.map((c) => (c._id === id ? updatedCard : c))
+    //       );
+    //     })
+    //     .catch((err) => console.log(err));
   };
 
   const handleToggleSwitchChange = () => {
