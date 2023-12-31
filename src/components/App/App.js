@@ -20,7 +20,7 @@ import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
 import auth from "../../utils/auth";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -92,8 +92,8 @@ function App() {
               _id: data._id,
             };
             setCurrentUser(user);
-            // console.log(currentUser);
             handleCloseModal();
+            // history.push("/profile");
           })
           .catch((error) => {
             console.error("Error retrieving user info:", error);
@@ -106,7 +106,10 @@ function App() {
   };
 
   const handleLogout = () => {
-    console.log("Log out");
+    setIsLoggedIn(false);
+    setCurrentUser({});
+    localStorage.removeItem("jwt");
+    // history.push("/");
   };
 
   const handleAddItemSubmit = (item) => {
