@@ -105,6 +105,10 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  const handleLogout = () => {
+    console.log("Log out");
+  };
+
   const handleAddItemSubmit = (item) => {
     // console.log(item);
 
@@ -285,6 +289,7 @@ function App() {
                   onAddNewClick={handleCreateModal}
                   onEditProfileClick={handleEditProfileModal}
                   onCardLikeClick={handleLikeClick}
+                  onLogout={handleLogout}
                 />
               </ProtectedRoute>
 

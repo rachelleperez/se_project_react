@@ -2,7 +2,7 @@ import "./SideBar.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const SideBar = ({ onEditProfileClick }) => {
+const SideBar = ({ onEditProfileClick, onLogout }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   // manage optional avatar, extract first letter in case it's needed
@@ -35,7 +35,7 @@ const SideBar = ({ onEditProfileClick }) => {
       </button>
       <button
         type="text"
-        // onClick={onCreateModal}
+        onClick={onLogout}
         className="sidebag__navigation-button"
       >
         Log out
