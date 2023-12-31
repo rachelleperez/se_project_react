@@ -26,8 +26,7 @@ function Main({
 
   // keep cards matching current weatherTempLevel
   const filteredCards = clothingItems.filter((item) => {
-    // console.log(item);
-    return item.weather.toLowerCase().trim() === weatherTempLevel;
+    return item.weather === weatherTempLevel;
   });
 
   // prepare display temp: F>C change only aplies to display elements. Any logic within the app will be based on Farenheit temp stored in weatherTemp

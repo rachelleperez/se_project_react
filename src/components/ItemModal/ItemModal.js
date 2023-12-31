@@ -9,8 +9,8 @@ const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
   };
 
   // Does current user own this card, if so... allow delete option
-  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
-  const isOwn = selectedCard.owner._id === currentUser._id;
+  const { currentUser } = useContext(CurrentUserContext);
+  const isOwn = selectedCard.owner === currentUser._id;
 
   const itemDeleteButtonClassName = `item__delete-button ${
     isOwn
