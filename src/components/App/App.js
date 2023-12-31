@@ -14,6 +14,7 @@ import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
 
 import api from "../../utils/api";
@@ -221,14 +222,14 @@ function App() {
             />
 
             <Switch>
-              <Route exact path="/profile">
+              <ProtectedRoute exact path="/profile">
                 <Profile
                   itemData={clothingItems}
                   onSelectCard={handleSelectedCard}
                   onCardDelete={handleCardDelete}
                   onAddNewClick={() => setActiveModal("create")}
                 />
-              </Route>
+              </ProtectedRoute>
 
               <Route path="/">
                 <Main
