@@ -21,7 +21,7 @@ import auth from "../../utils/auth";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
-  console.log("App now running");
+  // console.log("App First Line");
   // const weatherTemp = '50';
 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -36,6 +36,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  // const [isAppMounted, setIsAppMounted] = useState(false);
 
   const history = useHistory();
 
@@ -65,7 +66,7 @@ function App() {
 
     auth
       .signup(user)
-      .then(handleLogin(user)) // if user created, log in
+      .then(() => handleLogin(user)) // if user created, log in
       .catch(console.error)
       .finally(() => setIsLoading(false));
   };
@@ -82,8 +83,12 @@ function App() {
         auth
           .getUserInfo()
           .then((data) => {
-            console.log(data);
-            // setCurrentUser({ name: data.name, avatar: data.avatar });
+            // console.log(data);
+            const user = {
+              name: data.name,
+              avatar: data.avatar,
+            };
+            setCurrentUser(user);
             // console.log(currentUser);
             handleCloseModal();
           })
@@ -143,6 +148,18 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
+  // // keeps track if App is mounted
+  // useEffect(() => {
+  //   console.log("App now running");
+  //   setIsAppMounted(true);
+  //   console.log("App now running 2");
+
+  //   return () => {
+  //     console.log("App unmounting");
+  //     setIsAppMounted(false);
+  //   };
+  // }, []);
+
   // app already rendered, then it calls Weather and User APIs
   useEffect(() => {
     // make api calls
@@ -154,7 +171,6 @@ function App() {
           setCity(parseWeatherData(weatherData).cityName);
           setIsDaytime(parseWeatherData(weatherData).isDaytime);
           setWeatherType(parseWeatherData(weatherData).weatherType);
-
           // items
           setClothingItems(userData);
         }
@@ -193,7 +209,9 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
+        <CurrentUserContext.Provider
+          value={{ currentUser: currentUser, isLoggedIn: isLoggedIn }}
+        >
           <BrowserRouter>
             <Header
               onCreateModal={handleCreateModal}

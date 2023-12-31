@@ -15,8 +15,10 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
     day: "numeric",
   });
 
-  const { isLoggedIn } = useContext(CurrentUserContext);
-  console.log("Header, isLoggedIn:", isLoggedIn);
+  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
+  if (isLoggedIn) console.log("Header, currentUser:", currentUser);
+  // console.log("Header, isLoggedIn:", isLoggedIn);
+  // console.log("Header, currentUser:", currentUser);
 
   return (
     <header className="header">
