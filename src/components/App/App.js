@@ -223,8 +223,8 @@ function App() {
   useEffect(() => {
     if (!activeModal) return; // here you stop the effect
 
+    // here the effect will proceed if the modal is active
     const handleEsc = (e) => {
-      // here the effect will proceed if the modal is active
       if (e.key === "Escape") {
         handleCloseModal();
       }
