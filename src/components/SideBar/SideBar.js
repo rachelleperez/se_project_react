@@ -26,6 +26,20 @@ const SideBar = () => {
         )}
         <p className="sidebar__username">{currentUser.name}</p>
       </div>
+      <button
+        type="text"
+        // onClick={onCreateModal}
+        className="sidebag__navigation-button"
+      >
+        Change profile data
+      </button>
+      <button
+        type="text"
+        // onClick={onCreateModal}
+        className="sidebag__navigation-button"
+      >
+        Log out
+      </button>
     </div>
   );
 };
