@@ -1,11 +1,8 @@
 import "./ItemCard.css";
 
-const ItemCard = ({ item, onSelectCard }) => {
+const ItemCard = ({ item, onSelectCard, onCardLikeClick }) => {
   // temp until logic for liked in next sprint(s)
   const likeSrc = "/images/likeEmpty.svg";
-  const handleLike = (item) => {
-    console.log("clicked like heart");
-  };
 
   return (
     <div className="card">
@@ -22,7 +19,7 @@ const ItemCard = ({ item, onSelectCard }) => {
             src={likeSrc}
             className="card__like-button"
             alt="close"
-            onClick={() => handleLike(item)}
+            onClick={onCardLikeClick}
           />
         </div>
       </div>

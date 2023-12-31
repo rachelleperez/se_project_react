@@ -8,6 +8,7 @@ const ClothesSection = ({
   onAddNewClick,
   onSelectCard,
   onCardDelete,
+  onCardLikeClick,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
@@ -35,6 +36,7 @@ const ClothesSection = ({
               key={`user_item_card_${item._id}`}
               item={item}
               onSelectCard={onSelectCard}
+              onCardLikeClick={onCardLikeClick}
             />
           ))}
       </div>

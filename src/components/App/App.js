@@ -23,9 +23,6 @@ import auth from "../../utils/auth";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
-  // console.log("App First Line");
-  // const weatherTemp = '50';
-
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState(""); // sets default state for modals
@@ -38,7 +35,6 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  // const [isAppMounted, setIsAppMounted] = useState(false);
 
   const history = useHistory();
 
@@ -172,6 +168,31 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  const handleLikeClick = ({ id, isLiked }) => {
+    console.log("Like Button Clicked");
+    // isLiked
+    //   ? // if so, send a request to add the user's id to the card's likes array
+    //     api
+    //       // the first argument is the card's id
+    //       .addCardLike(id)
+    //       .then((updatedCard) => {
+    //         setClothingItems((cards) =>
+    //           cards.map((c) => (c._id === id ? updatedCard : c))
+    //         );
+    //       })
+    //       .catch((err) => console.log(err))
+    //   : // if not, send a request to remove the user's id from the card's likes array
+    //     api
+    //       // the first argument is the card's id
+    //       .removeCardLike(id)
+    //       .then((updatedCard) => {
+    //         setClothingItems((cards) =>
+    //           cards.map((c) => (c._id === id ? updatedCard : c))
+    //         );
+    //       })
+    //       .catch((err) => console.log(err));
+  };
+
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
       ? setCurrentTemperatureUnit("C")
@@ -266,6 +287,7 @@ function App() {
                   onCardDelete={handleCardDelete}
                   onAddNewClick={handleCreateModal}
                   onEditProfileClick={handleEditProfileModal}
+                  onCardLikeClick={handleLikeClick}
                 />
               </ProtectedRoute>
 
@@ -276,6 +298,7 @@ function App() {
                   weatherType={weatherType}
                   isDaytime={isDaytime}
                   clothingItems={clothingItems}
+                  onCardLikeClick={handleLikeClick}
                 />
               </Route>
             </Switch>

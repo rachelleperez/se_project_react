@@ -11,6 +11,7 @@ function Main({
   weatherType,
   isDaytime,
   clothingItems,
+  onCardLikeClick,
 }) {
   const weatherTempLevel = useMemo(() => {
     if (weatherTemp >= 86) {
@@ -53,6 +54,7 @@ function Main({
               key={`filtered_item_card_${item._id}`}
               item={item}
               onSelectCard={onSelectCard}
+              onCardLikeClick={onCardLikeClick}
             />
           ))}
         </div>

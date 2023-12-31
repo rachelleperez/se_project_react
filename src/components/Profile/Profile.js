@@ -8,6 +8,7 @@ const Profile = ({
   onCardDelete,
   onAddNewClick,
   onEditProfileClick,
+  onCardLikeClick,
 }) => {
   return (
     <div className="profile">
@@ -17,6 +18,7 @@ const Profile = ({
         onAddNewClick={onAddNewClick}
         onSelectCard={onSelectCard}
         onCardDelete={onCardDelete}
+        onCardLikeClick={onCardLikeClick}
       />
     </div>
   );
