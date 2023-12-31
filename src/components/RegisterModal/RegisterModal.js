@@ -35,6 +35,8 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
       avatar: avatar,
     };
 
+    console.log("RegisterModal, userDataIn: ", data);
+
     onSubmit(data);
   };
 
@@ -77,7 +79,7 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
         />
       </label>
       <label className="modal__form-label">
-        Name
+        Name*
         <input
           className="modal__form-text-input"
           type="text"
@@ -100,7 +102,6 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
           minLength="1"
           maxLength="30"
           placeholder="Avatar URL"
-          required
           onChange={handleAvatarChange}
         />
       </label>

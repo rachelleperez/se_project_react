@@ -26,7 +26,7 @@ function Main({
 
   // keep cards matching current weatherTempLevel
   const filteredCards = clothingItems.filter((item) => {
-    // console.log(item)
+    // console.log(item);
     return item.weather.toLowerCase().trim() === weatherTempLevel;
   });
 

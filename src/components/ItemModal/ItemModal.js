@@ -1,12 +1,22 @@
+import { useContext } from "react";
 import "./ItemModal.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
-  // console.log('item modal');
-
   const handleClose = (e) => {
     e.preventDefault();
     onClose();
   };
+
+  // Does current user own this card, if so... allow delete option
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  const isOwn = selectedCard.owner._id === currentUser._id;
+
+  const itemDeleteButtonClassName = `item__delete-button ${
+    isOwn
+      ? "modal__image-delete-button-visible"
+      : "modal__image-delete-button-hidden"
+  }`;
 
   return (
     <div className={"modal"}>
@@ -27,7 +37,7 @@ const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
           <div className="modal__image-caption-line1">
             <p className="modal__image-caption-text">{selectedCard.name}</p>
             <button
-              className="modal__image-delete-button"
+              className={itemDeleteButtonClassName}
               type="text"
               onClick={onCardDelete}
             >

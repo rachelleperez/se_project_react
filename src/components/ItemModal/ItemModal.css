@@ -36,12 +36,20 @@
   margin-bottom: 5px;
 }
 
-.modal__image-delete-button {
+.modal__image-delete-button-visible {
   background-color: transparent;
   border: none;
   /* padding-right: 32px; */
   color: red;
   cursor: pointer;
+}
+
+.modal__image-delete-button-hidden {
+  /* background-color: transparent;
+  border: none;
+  color: purple;
+  cursor: pointer; */
+  display: none;
 }
 
 .modal__image-caption-text {

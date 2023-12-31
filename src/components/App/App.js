@@ -88,6 +88,7 @@ function App() {
             const user = {
               name: data.name,
               avatar: data.avatar,
+              _id: data._id,
             };
             setCurrentUser(user);
             // console.log(currentUser);
@@ -212,9 +213,11 @@ function App() {
         .getUserInfo()
         .then((data) => {
           setIsLoggedIn(true);
+          // console.log(data);
           const user = {
             name: data.name,
             avatar: data.avatar,
+            _id: data._id,
           };
           setCurrentUser(user);
         })
