@@ -30,7 +30,6 @@ const signin = ({ email, password }) => {
 };
 
 const getUserInfo = () => {
-  console.log("api, getUserInfo");
   return request(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
