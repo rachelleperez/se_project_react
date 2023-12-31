@@ -16,9 +16,7 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
   });
 
   const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
-  if (isLoggedIn) console.log("Header, currentUser:", currentUser);
-  // console.log("Header, isLoggedIn:", isLoggedIn);
-  // console.log("Header, currentUser:", currentUser);
+  // if (isLoggedIn) console.log("Header, currentUser:", currentUser);
 
   return (
     <header className="header">
@@ -48,11 +46,16 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
             </div>
 
             <Link className="header__user_name-link" to="/profile">
-              <p className="header__user-name">Terrance Tegegne</p>
+              <p className="header__user-name">{currentUser.name}</p>
             </Link>
 
             <Link to="/profile">
-              <img src={avatarImagePath} alt="avatar" />
+              {/* <img src={avatarImagePath} alt="avatar" /> */}
+              <img
+                className="header__avatar-pic"
+                src={currentUser.avatar}
+                alt="avatar"
+              />
             </Link>
           </>
         ) : (
