@@ -151,9 +151,25 @@ function App() {
 
   // request to delete item
   const handleEditProfile = (data) => {
-    console.log("Edit Profile");
-    console.log(data);
-    handleCloseModal();
+    console.log("front end", currentUser._id);
+    setIsLoading(true);
+
+    auth
+      .updateUserInfo(data)
+      .then((data) => {
+        console.log("Updated User Profile");
+        const user = {
+          name: data.name,
+          avatar: data.avatar,
+          _id: data._id,
+        };
+        setCurrentUser(user);
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error("Error in Update Profile", error);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleToggleSwitchChange = () => {

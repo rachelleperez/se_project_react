@@ -39,10 +39,25 @@ const getUserInfo = () => {
   });
 };
 
+const updateUserInfo = ({ name, avatar }) => {
+  return request(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+  });
+};
+
 export const auth = {
   signup,
   signin,
   getUserInfo,
+  updateUserInfo,
 };
 
 export default auth;
