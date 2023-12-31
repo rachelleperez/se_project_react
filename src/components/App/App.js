@@ -61,9 +61,7 @@ function App() {
   };
 
   const handleModalReroute = (newModal) => {
-    console.log("Current Modal: ", activeModal);
-    console.log("Rerouting to Modal: ", newModal);
-    // setActiveModal(newModal);
+    setActiveModal(newModal);
   };
 
   const handleSignup = (user) => {
