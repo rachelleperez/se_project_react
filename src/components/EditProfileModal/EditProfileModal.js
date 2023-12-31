@@ -61,7 +61,7 @@ const EditProfileModal = ({ onClose, onSubmit, isLoading }) => {
           name="avatar"
           value={avatar}
           minLength="1"
-          maxLength="300"
+          maxLength="2000"
           placeholder="Avatar URL"
           onChange={handleAvatarChange}
         />
