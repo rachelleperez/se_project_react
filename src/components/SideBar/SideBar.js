@@ -2,13 +2,13 @@ import "./SideBar.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const SideBar = () => {
+const SideBar = ({ onEditProfileClick }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   // manage optional avatar, extract first letter in case it's needed
   const avatarAvailable = currentUser.avatar !== undefined;
   const firstLetterName =
-    currentUser.avatar !== undefined && currentUser.name.length > 0
+    currentUser.name !== undefined && currentUser.name.length > 0
       ? currentUser.name[0]
       : "X"; // X placeholder
 
@@ -28,7 +28,7 @@ const SideBar = () => {
       </div>
       <button
         type="text"
-        // onClick={onCreateModal}
+        onClick={onEditProfileClick}
         className="sidebag__navigation-button"
       >
         Change profile data

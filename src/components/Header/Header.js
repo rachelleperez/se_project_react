@@ -20,9 +20,9 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
   // manage optional avatar, extract first letter in case it's needed
   const avatarAvailable = currentUser.avatar !== undefined;
   const firstLetterName =
-    currentUser.avatar !== undefined && currentUser.name.length > 0
+    currentUser.name !== undefined && currentUser.name.length > 0
       ? currentUser.name[0]
-      : "X"; // X placeholder
+      : "A"; // X placeholder
 
   return (
     <header className="header">

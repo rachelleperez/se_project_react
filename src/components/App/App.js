@@ -13,6 +13,7 @@ import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import CurrentTemperatureUnitContext from "./../../contexts/CurrentTemperatureUnitContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "./../../contexts/CurrentUserContext";
@@ -60,6 +61,10 @@ function App() {
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+  };
+
+  const handleEditProfileModal = () => {
+    setActiveModal("editProfile");
   };
 
   const handleSignup = (user) => {
@@ -142,6 +147,13 @@ function App() {
       })
       .catch(console.error)
       .finally(() => setIsLoading(false));
+  };
+
+  // request to delete item
+  const handleEditProfile = (data) => {
+    console.log("Edit Profile");
+    console.log(data);
+    handleCloseModal();
   };
 
   const handleToggleSwitchChange = () => {
@@ -236,7 +248,8 @@ function App() {
                   itemData={clothingItems}
                   onSelectCard={handleSelectedCard}
                   onCardDelete={handleCardDelete}
-                  onAddNewClick={() => setActiveModal("create")}
+                  onAddNewClick={handleCreateModal}
+                  onEditProfileClick={handleEditProfileModal}
                 />
               </ProtectedRoute>
 
@@ -290,6 +303,14 @@ function App() {
             <LoginModal
               onClose={handleCloseModal}
               onSubmit={handleLogin}
+              isLoading={isLoading}
+            />
+          )}
+
+          {activeModal === "editProfile" && (
+            <EditProfileModal
+              onClose={handleCloseModal}
+              onSubmit={handleEditProfile}
               isLoading={isLoading}
             />
           )}

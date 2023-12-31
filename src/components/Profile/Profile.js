@@ -2,10 +2,16 @@ import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
-const Profile = ({ itemData, onSelectCard, onCardDelete, onAddNewClick }) => {
+const Profile = ({
+  itemData,
+  onSelectCard,
+  onCardDelete,
+  onAddNewClick,
+  onEditProfileClick,
+}) => {
   return (
     <div className="profile">
-      <SideBar />
+      <SideBar onEditProfileClick={onEditProfileClick} />
       <ClothesSection
         itemData={itemData} //temp: defaultCards
         onAddNewClick={onAddNewClick}
