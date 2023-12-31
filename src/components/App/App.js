@@ -147,13 +147,11 @@ function App() {
 
   // request to delete item
   const handleEditProfile = (data) => {
-    console.log("front end", currentUser._id);
     setIsLoading(true);
 
     auth
       .updateUserInfo(data)
       .then((data) => {
-        console.log("Updated User Profile");
         const user = {
           name: data.name,
           avatar: data.avatar,
@@ -168,33 +166,28 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  const handleLikeClick = (item, isLiked) => {
-    console.log("Like Button Clicked");
-    const id = item._id;
-    console.log("Current User: ", currentUser._id);
-
-    // isLiked
-    //   ? // if so, send a request to add the user's id to the card's likes array
-    api
-      // the first argument is the card's id
-      .addCardLike(id)
-      .then((updatedCard) => {
-        console.log("Card Liked");
-        setClothingItems((cards) =>
-          cards.map((c) => (c._id === id ? updatedCard : c))
-        );
-      })
-      .catch((err) => console.log(err));
-    // : // if not, send a request to remove the user's id from the card's likes array
-    //   api
-    //     // the first argument is the card's id
-    //     .removeCardLike(id)
-    //     .then((updatedCard) => {
-    //       setClothingItems((cards) =>
-    //         cards.map((c) => (c._id === id ? updatedCard : c))
-    //       );
-    //     })
-    //     .catch((err) => console.log(err));
+  const handleLikeClick = ({ _id, isLiked }) => {
+    !isLiked
+      ? // if not liked, like this card
+        api
+          // the first argument is the card's id
+          .addCardLike({ _id })
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === _id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, unlike this card
+        api
+          // the first argument is the card's id
+          .removeCardLike({ _id })
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === _id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err));
   };
 
   const handleToggleSwitchChange = () => {

@@ -1,14 +1,10 @@
 import { BASE_URL } from "./constants";
 
 export const handleServerResponse = (res) => {
-  console.log("handleResponse");
-  console.log(res);
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
 export function request(url, options) {
-  console.log("Request URL", url);
-  console.log("Request Options", options);
   return fetch(url, options).then(handleServerResponse);
 }
 
@@ -46,10 +42,8 @@ const removeItem = (id) => {
   });
 };
 
-const addCardLike = (id) => {
-  console.log("front end api, addCardLike");
-  console.log("Item ID to Like: ", id);
-  return request(`${BASE_URL}/items/${id}/likes}`, {
+const addCardLike = ({ _id }) => {
+  return request(`${BASE_URL}/items/${_id}/likes`, {
     method: "PUT",
     headers: {
       "Content-type": "application/json",
@@ -58,8 +52,8 @@ const addCardLike = (id) => {
   });
 };
 
-const removeCardLike = (id) => {
-  return request(`${BASE_URL}/items/${id}/likes}`, {
+const removeCardLike = ({ _id }) => {
+  return request(`${BASE_URL}/items/${_id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
