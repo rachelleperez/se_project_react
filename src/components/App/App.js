@@ -60,6 +60,12 @@ function App() {
     setActiveModal("editProfile");
   };
 
+  const handleModalReroute = (newModal) => {
+    console.log("Current Modal: ", activeModal);
+    console.log("Rerouting to Modal: ", newModal);
+    // setActiveModal(newModal);
+  };
+
   const handleSignup = (user) => {
     setIsLoading(true);
 
@@ -280,6 +286,7 @@ function App() {
               onCreateModal={handleCreateModal}
               onLoginModal={handleLoginModal}
               onSignupModal={handleSignupModal}
+              onModalReroute={handleModalReroute}
               city={city}
             />
 
@@ -340,6 +347,7 @@ function App() {
               onClose={handleCloseModal}
               onSubmit={handleSignup}
               isLoading={isLoading}
+              onModalReroute={handleModalReroute}
             />
           )}
 
@@ -348,6 +356,7 @@ function App() {
               onClose={handleCloseModal}
               onSubmit={handleLogin}
               isLoading={isLoading}
+              onModalReroute={handleModalReroute}
             />
           )}
 

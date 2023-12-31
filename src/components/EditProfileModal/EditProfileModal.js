@@ -39,7 +39,6 @@ const EditProfileModal = ({ onClose, onSubmit, isLoading }) => {
       submitButtonText="Save changes"
       loadingSubmitButtonText="Saving ..."
       modalReroute={null}
-      modalRerouteText=""
     >
       <label className="modal__form-label">
         Name*

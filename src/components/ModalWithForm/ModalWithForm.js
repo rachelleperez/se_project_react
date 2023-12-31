@@ -10,7 +10,6 @@ const ModalWithForm = ({
   submitButtonText,
   loadingSubmitButtonText,
   modalReroute,
-  modalRerouteText,
 }) => {
   // console.log('ModalWithForm');
 
@@ -19,21 +18,16 @@ const ModalWithForm = ({
     onClose();
   };
 
-  // temp
-  const onRerouteClick = () => {
-    console.log("Reroute to modal: " + modalReroute);
-  };
-
   const handleRerouteHTML =
     modalReroute === null || modalReroute === undefined ? null : ( //undefined is defensive in case it's not proactively defined as null
       <>
         or
         <button
           type="button"
-          onClick={onRerouteClick}
+          onClick={() => modalReroute.onRerouteClick(modalReroute.new)}
           // className="sidebag__navigation-button"
         >
-          {modalRerouteText}
+          {modalReroute.text}
         </button>
       </>
     );

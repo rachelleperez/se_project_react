@@ -45,7 +45,6 @@ const AddItemModal = ({ onClose, onAddItem, isLoading }) => {
       submitButtonText="Add Garment"
       loadingSubmitButtonText="Adding Garment ..."
       modalReroute={null}
-      modalRerouteText=""
     >
       <label className="modal__form-label">
         Name

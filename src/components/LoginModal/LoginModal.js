@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-const LoginModal = ({ onClose, onSubmit, isLoading }) => {
+const LoginModal = ({ onClose, onSubmit, isLoading, onModalReroute }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,8 +33,11 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
       isLoading={isLoading}
       submitButtonText="Log In"
       loadingSubmitButtonText="Logging in ..."
-      modalReroute="register"
-      modalRerouteText="Register"
+      modalReroute={{
+        new: "register",
+        text: "Register",
+        onRerouteClick: onModalReroute,
+      }}
     >
       <label className="modal__form-label">
         Email
