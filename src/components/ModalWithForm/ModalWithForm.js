@@ -2,7 +2,6 @@ import "./ModalWithForm.css";
 
 const ModalWithForm = ({
   children,
-
   title,
   onClose,
   name,
@@ -20,10 +19,24 @@ const ModalWithForm = ({
     onClose();
   };
 
-  console.log(modalReroute);
+  // temp
+  const onRerouteClick = () => {
+    console.log("Reroute to modal: " + modalReroute);
+  };
 
   const handleRerouteHTML =
-    modalReroute === null ? null : "or " + modalRerouteText;
+    modalReroute === null || modalReroute === undefined ? null : ( //undefined is defensive in case it's not proactively defined as null
+      <>
+        or
+        <button
+          type="button"
+          onClick={onRerouteClick}
+          // className="sidebag__navigation-button"
+        >
+          {modalRerouteText}
+        </button>
+      </>
+    );
 
   return (
     <div className={`modal modal_type_${name}`}>
