@@ -16,7 +16,13 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
   });
 
   const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
-  // if (isLoggedIn) console.log("Header, currentUser:", currentUser);
+
+  // manage optional avatar, extract first letter in case it's needed
+  const avatarAvailable = currentUser.avatar !== undefined;
+  const firstLetterName =
+    currentUser.avatar !== undefined && currentUser.name.length > 0
+      ? currentUser.name[0]
+      : "X"; // X placeholder
 
   return (
     <header className="header">
@@ -49,13 +55,18 @@ const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
               <p className="header__user-name">{currentUser.name}</p>
             </Link>
 
-            <Link to="/profile">
-              {/* <img src={avatarImagePath} alt="avatar" /> */}
-              <img
-                className="header__avatar-pic"
-                src={currentUser.avatar}
-                alt="avatar"
-              />
+            <Link className="header__user_name-link" to="/profile">
+              {avatarAvailable ? (
+                <img
+                  className="header__avatar-pic"
+                  src={currentUser.avatar}
+                  alt="avatar"
+                />
+              ) : (
+                <p className="header__avatar-pic-placeholder">
+                  {firstLetterName}
+                </p>
+              )}
             </Link>
           </>
         ) : (

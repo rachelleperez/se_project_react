@@ -150,18 +150,6 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
-  // // keeps track if App is mounted
-  // useEffect(() => {
-  //   console.log("App now running");
-  //   setIsAppMounted(true);
-  //   console.log("App now running 2");
-
-  //   return () => {
-  //     console.log("App unmounting");
-  //     setIsAppMounted(false);
-  //   };
-  // }, []);
-
   // app already rendered, then it calls Weather and User APIs
   useEffect(() => {
     // make api calls
@@ -213,7 +201,6 @@ function App() {
         .getUserInfo()
         .then((data) => {
           setIsLoggedIn(true);
-          // console.log(data);
           const user = {
             name: data.name,
             avatar: data.avatar,

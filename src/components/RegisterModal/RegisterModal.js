@@ -29,11 +29,13 @@ const RegisterModal = ({ onClose, onSubmit, isLoading }) => {
     e.preventDefault();
 
     const data = {
-      email: email,
+      email: email.trim(),
       password: password,
-      name: name,
-      avatar: avatar,
+      name: name.trim(),
     };
+
+    // avatar is optional
+    if (avatar !== "") data.avatar = avatar;
 
     console.log("RegisterModal, userDataIn: ", data);
 

@@ -49,3 +49,18 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.header__avatar-pic-placeholder {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-width: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
