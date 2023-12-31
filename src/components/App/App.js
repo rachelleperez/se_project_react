@@ -175,7 +175,6 @@ function App() {
       !isLiked
         ? // if not liked, like this card
           api
-            // the first argument is the card's id
             .addCardLike({ _id })
             .then((updatedCard) => {
               setClothingItems((cards) =>
@@ -185,7 +184,6 @@ function App() {
             .catch((err) => console.log(err))
         : // if not, unlike this card
           api
-            // the first argument is the card's id
             .removeCardLike({ _id })
             .then((updatedCard) => {
               setClothingItems((cards) =>
