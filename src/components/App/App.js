@@ -241,7 +241,7 @@ function App() {
             />
 
             <Switch>
-              <ProtectedRoute exact path="/profile">
+              <ProtectedRoute exact path="/profile" isLoggedIn={isLoggedIn}>
                 <Profile
                   itemData={clothingItems}
                   onSelectCard={handleSelectedCard}
