@@ -23,6 +23,7 @@ const addItem = ({ name, weather, imageUrl }) => {
     method: "POST",
     headers: {
       "Content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
     body: JSON.stringify({
       name,
@@ -37,6 +38,7 @@ const removeItem = (id) => {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   });
 };
