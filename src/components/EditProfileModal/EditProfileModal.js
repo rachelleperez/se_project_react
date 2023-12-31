@@ -31,10 +31,10 @@ const LoginModal = ({ onClose, onSubmit, isLoading }) => {
       title="Change profile data"
       onClose={onClose}
       onSubmit={handleSubmit}
-      name="login"
+      name="editProfile"
       isLoading={isLoading}
-      submitButtonText="Log In"
-      loadingSubmitButtonText="Logging in ..."
+      submitButtonText="Save changes"
+      loadingSubmitButtonText="Saving ..."
     >
       <label className="modal__form-label">
         Name*
