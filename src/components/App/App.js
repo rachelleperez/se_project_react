@@ -205,6 +205,25 @@ function App() {
     };
   }, [activeModal]);
 
+  // check if currently if user signed in before. no need for login, will auto log
+  useEffect(() => {
+    if (localStorage.getItem("jwt")) {
+      auth
+        .getUserInfo()
+        .then((data) => {
+          setIsLoggedIn(true);
+          const user = {
+            name: data.name,
+            avatar: data.avatar,
+          };
+          setCurrentUser(user);
+        })
+        .catch(console.error);
+    } else {
+      setIsLoggedIn(false); // defensive
+    }
+  }, [isLoggedIn]);
+
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
