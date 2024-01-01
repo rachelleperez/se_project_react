@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const logoImagePath = "/images/logo.svg";
-const avatarImagePath = "/images/avatar.svg";
 
 const Header = ({ onCreateModal, onLoginModal, onSignupModal, city }) => {
   // console.log('Header');
