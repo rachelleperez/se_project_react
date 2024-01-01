@@ -24,7 +24,7 @@ const EditProfileModal = ({ onClose, onSubmit, isLoading }) => {
 
     // track values changed only
     if (name !== currentUser.name) data.name = name;
-    if (avatar !== currentUser.avatar) data.avatar = avatar;
+    if (avatar !== "" && avatar !== currentUser.avatar) data.avatar = avatar;
 
     onSubmit(data);
   };

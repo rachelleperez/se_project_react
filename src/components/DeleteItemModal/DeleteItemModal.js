@@ -25,7 +25,7 @@ const DeleteItemModal = ({ onClose, onCardDeleteConfirmation, isLoading }) => {
 
         <div className="modal__image-delete-options-container">
           <button
-            className="modal__image-delete-button"
+            className="modal__image-delete-button-visible"
             type="text"
             onClick={onCardDeleteConfirmation}
           >

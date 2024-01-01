@@ -37,7 +37,7 @@ const RegisterModal = ({ onClose, onSubmit, isLoading, onModalReroute }) => {
     // avatar is optional
     if (avatar !== "") data.avatar = avatar;
 
-    console.log("RegisterModal, userDataIn: ", data);
+    // console.log("RegisterModal, userDataIn: ", data);
 
     onSubmit(data);
   };

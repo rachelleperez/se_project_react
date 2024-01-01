@@ -1,5 +1,7 @@
 import "./ModalWithForm.css";
 
+import React, { useState, useRef, useEffect } from "react";
+
 const ModalWithForm = ({
   children,
   title,
@@ -12,6 +14,24 @@ const ModalWithForm = ({
   modalReroute,
 }) => {
   // console.log('ModalWithForm');
+
+  // to update submit button style based on if valid
+  const [isFormValid, setIsFormValid] = useState(false);
+  const formRef = useRef(null);
+
+  const handleInputChange = () => {
+    // Check the validity of each input on change
+    const formElements = formRef.current.elements;
+    const isValid = Array.from(formElements).every((element) =>
+      element.checkValidity()
+    );
+    setIsFormValid(isValid);
+  };
+
+  useEffect(() => {
+    // Initialize form validity on mount
+    handleInputChange();
+  }, []);
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -46,9 +66,20 @@ const ModalWithForm = ({
           </button>
           <h3 className="modal__title">{title}</h3>
         </div>
-        <form className="modal__form" onSubmit={onSubmit}>
+        <form
+          className="modal__form"
+          onSubmit={onSubmit}
+          ref={formRef}
+          onChange={handleInputChange}
+        >
           {children}
-          <button className="modal__form-submit-button" type="submit">
+          <button
+            className={`modal__form-submit-button${
+              isFormValid ? "" : "-disabled"
+            }`}
+            type="submit"
+            disabled={!isFormValid}
+          >
             {isLoading ? loadingSubmitButtonText : submitButtonText}
           </button>
           {handleRerouteHTML}
