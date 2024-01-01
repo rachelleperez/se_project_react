@@ -105,3 +105,15 @@
 .modal__form-radio-input:checked + .modal__form-radio-label {
   color: black;
 }
+
+.modal__form-reroute {
+  display: inline;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  margin-left: 12px;
+}
+
+.modal__form-reroute-button {
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+}

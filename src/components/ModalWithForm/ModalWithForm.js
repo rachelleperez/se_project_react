@@ -20,16 +20,17 @@ const ModalWithForm = ({
 
   const handleRerouteHTML =
     modalReroute === null || modalReroute === undefined ? null : ( //undefined is defensive in case it's not proactively defined as null
-      <>
+      <div className="modal__form-reroute">
         or
         <button
+          className="modal__form-reroute-button"
           type="button"
           onClick={() => modalReroute.onRerouteClick(modalReroute.new)}
           // className="sidebag__navigation-button"
         >
           {modalReroute.text}
         </button>
-      </>
+      </div>
     );
 
   return (
