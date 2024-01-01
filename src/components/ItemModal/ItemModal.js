@@ -3,6 +3,8 @@ import "./ItemModal.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ItemModal = ({ selectedCard, onClose, onCardDelete }) => {
+  // console.log('item modal');
+
   const handleClose = (e) => {
     e.preventDefault();
     onClose();
