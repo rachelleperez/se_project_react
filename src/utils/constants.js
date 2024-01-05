@@ -1,4 +1,9 @@
-export const BASE_URL = "http://localhost:3001";
+// export const BASE_URL = "http://localhost:3001";
+
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "wtwr.soon.it"
+    : "http://localhost:3001";
 
 export const weatherOptions = [
   { url: "/images/day/sunny.svg", day: true, type: "sunny" },
