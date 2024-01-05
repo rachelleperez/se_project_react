@@ -1,6 +1,6 @@
 // export const BASE_URL = "http://localhost:3001";
 
-const BASE_URL =
+export const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "wtwr.soon.it"
     : "http://localhost:3001";
