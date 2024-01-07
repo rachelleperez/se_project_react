@@ -2,7 +2,7 @@
 
 export const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "wtwr.soon.it"
+    ? "https://api.wtwr.soon.it" // backend
     : "http://localhost:3001";
 
 export const weatherOptions = [
